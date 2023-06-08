@@ -1,11 +1,14 @@
 import React from "react";
 import Banner from "../Banner/Banner";
 import ExtraSection from "../ExtraSection/ExtraSection";
+import {Helmet} from "react-helmet-async";
 
 const Home = () => {
   return (
     <div>
-      <h1 className="text-4xl text-center">this is home </h1>
+      <Helmet>
+        <title>Hello home</title>
+      </Helmet>
       <Banner />
       <ExtraSection />
     </div>
