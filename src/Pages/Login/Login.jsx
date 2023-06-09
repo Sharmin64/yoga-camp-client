@@ -1,15 +1,20 @@
-import React from "react";
+import React, {useContext} from "react";
 import {Link} from "react-router-dom";
 import login from "../../../src/assets/images/loginPage.jpg";
+import {AuthContext} from "../../Providers/AuthProvider";
 
 const Login = () => {
+  const {signIn} = useContext(AuthContext);
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    const confirmPassword = form.confirm.value;
-    console.log(email, password, confirmPassword);
+    console.log(email, password);
+    signIn(email, password).then((result) => {
+      const user = result.user;
+      console.log(user);
+    });
   };
   return (
     <>
@@ -32,24 +37,14 @@ const Login = () => {
                   className="input input-bordered"
                 />
               </div>
+
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Password</span>
+                  <span className="label-text"> Password</span>
                 </label>
                 <input
                   type="password"
                   name="password"
-                  placeholder="password"
-                  className="input input-bordered"
-                />
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text"> Confirm Password</span>
-                </label>
-                <input
-                  type="password"
-                  name="confirm"
                   placeholder="password"
                   className="input input-bordered"
                 />
