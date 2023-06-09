@@ -6,4 +6,8 @@
 
 ## react helmet async
 
+## react icons installed
+
+## npm install sweetalert2
+
 ## npm install --save react-awesome-slider

@@ -1,0 +1,56 @@
+[
+  {
+      "className": "Hatha Yoga",
+      "instructorName": "Emma Johnson",
+      "classImage": "https://example.com/hatha_yoga_class.jpg",
+      "instructorImage": "https://example.com/emma_johnson.jpg",
+      "price": "$12",
+      "enrolled": 30,
+      "description": "A calming and gentle form of yoga that focuses on breathing and basic postures."
+  },
+  {
+      "className": "Vinyasa Flow",
+      "instructorName": "Daniel Anderson",
+      "classImage": "https://example.com/vinyasa_flow_class.jpg",
+      "instructorImage": "https://example.com/daniel_anderson.jpg",
+      "price": "$15",
+      "enrolled": 25,
+      "description": "A dynamic and energetic style of yoga that synchronizes movement with breath."
+  },
+  {
+      "className": "Ashtanga Yoga",
+      "instructorName": "Olivia Smith",
+      "classImage": "https://example.com/ashtanga_yoga_class.jpg",
+      "instructorImage": "https://example.com/olivia_smith.jpg",
+      "price": "$14",
+      "enrolled": 20,
+      "description": "A physically demanding and structured form of yoga that follows a specific sequence of postures."
+  },
+  {
+      "className": "Bikram Yoga",
+      "instructorName": "William Brown",
+      "classImage": "https://example.com/bikram_yoga_class.jpg",
+      "instructorImage": "https://example.com/william_brown.jpg",
+      "price": "$17",
+      "enrolled": 22,
+      "description": "A hot yoga practice that consists of a series of 26 postures performed in a heated room."
+  },
+  {
+      "className": "Kundalini Yoga",
+      "instructorName": "Sophia Davis",
+      "classImage": "https://example.com/kundalini_yoga_class.jpg",
+      "instructorImage": "https://example.com/sophia_davis.jpg",
+      "price": "$16",
+      "enrolled": 18,
+      "description": "A spiritual and meditative style of yoga that focuses on breathwork, chanting, and energy awakening."
+  },
+  {
+      "className": "Yin Yoga",
+      "instructorName": "Benjamin Wilson",
+      "classImage": "https://example.com/yin_yoga_class.jpg",
+      "instructorImage": "https://example.com/benjamin_wilson.jpg",
+      "price": "$13",
+      "enrolled": 28,
+      "description": "A slow-paced and passive style of yoga that targets deep connective tissues and joints."
+  }
+]

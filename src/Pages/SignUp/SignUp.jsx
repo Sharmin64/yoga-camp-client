@@ -4,9 +4,9 @@ import {useForm} from "react-hook-form";
 import {Link, useLocation, useNavigate} from "react-router-dom";
 import {AuthContext} from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
-import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 import {FaEye, FaEyeSlash, FaGoogle} from "react-icons/fa";
 import registerImg from "../../../src/assets/images/register.jpg";
+import {useState} from "react";
 
 const SignUp = () => {
   const {
@@ -30,28 +30,15 @@ const SignUp = () => {
       console.log(loggedUser);
       updateUserProfile(data.name, data.photoURL)
         .then(() => {
-          const saveUser = {name: data.name, email: data.email};
-          fetch("http://localhost:5003/users", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(saveUser),
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              if (data.insertedId) {
-                reset();
-                Swal.fire({
-                  position: "center",
-                  icon: "success",
-                  title: "User Created Successfully",
-                  showConfirmButton: false,
-                  timer: 1500,
-                });
-                navigate("/");
-              }
-            });
+          reset();
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "User Created Successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          navigate("/");
         })
         .catch((error) => console.log(error));
     });
@@ -151,7 +138,7 @@ const SignUp = () => {
                     required: true,
                     minLength: 6,
                     maxLength: 20,
-                    pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
+                    //pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
                   })}
                   name="password"
                   className="input input-bordered"
@@ -243,7 +230,7 @@ const SignUp = () => {
                 <FaGoogle className="" />
               </button>
             </div>
-            <p className="text-center">
+            <p className="text-center mb-3">
               <small>
                 Already have an account ?
                 <Link className="text-blue-400" to="/login">
@@ -251,7 +238,6 @@ const SignUp = () => {
                 </Link>
               </small>
             </p>
-            <SocialLogin />
           </div>
         </div>
       </div>

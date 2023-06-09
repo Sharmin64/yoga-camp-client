@@ -1,26 +1,35 @@
 import React from "react";
+import {useContext} from "react";
 import {Link} from "react-router-dom";
+import {AuthContext} from "../../../Providers/AuthProvider";
 
 const Navbar = () => {
+  const {user, logOut} = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
   const navItems = (
     <>
       <li>
         <Link to="/">Home</Link>
       </li>
       <li>
+        {/*<Link to="/menu">Instructors</Link>*/}
+        Instructors
+      </li>
+      <li>
+        {/*<Link to="/order/salad">Classes</Link>*/}
+        Classes
+      </li>
+      <li>
+        DashBoard
+        {/*<Link to="/secret">dashboard</Link>*/}
+      </li>
+      <li>
         <Link to="/login">Login</Link>
-      </li>
-      <li>
-        {/*<Link to="/menu">Our MenuBar</Link>*/}
-        instructor
-      </li>
-      <li>
-        {/*<Link to="/order/salad">Order Food</Link>*/}
-        all user
-      </li>
-      <li>
-        yoga class
-        {/*<Link to="/secret">SecretPage</Link>*/}
       </li>
 
       {/*{user ? (
@@ -40,9 +49,8 @@ const Navbar = () => {
         </>
       )}*/}
       {/*<li>
-        <Link to="/dashboard/mycart">
+        <Link to="/dashboard/myclass">
           <button className="btn gap-2">
-            <FaShoppingCart style={{fontSize: "1.5rem"}} />
             <div className="badge badge-secondary">+{cart?.length || 0}</div>
           </button>
         </Link>
