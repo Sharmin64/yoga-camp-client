@@ -17,22 +17,13 @@ const Navbar = () => {
         <Link to="/">Home</Link>
       </li>
       <li>
-        {/*<Link to="/menu">Instructors</Link>*/}
-        Instructors
+        <Link to="/instructors">Instructors</Link>
       </li>
       <li>
-        {/*<Link to="/order/salad">Classes</Link>*/}
-        Classes
-      </li>
-      <li>
-        DashBoard
-        {/*<Link to="/secret">dashboard</Link>*/}
-      </li>
-      <li>
-        <Link to="/login">Login</Link>
+        <Link to="/classes">Classes</Link>
       </li>
 
-      {/*{user ? (
+      {user ? (
         <>
           <span>{user?.displayName}</span>
 
@@ -43,22 +34,14 @@ const Navbar = () => {
       ) : (
         <>
           <li>
-            login
             <Link to="/login">Login</Link>
           </li>
         </>
-      )}*/}
-      {/*<li>
-        <Link to="/dashboard/myclass">
-          <button className="btn gap-2">
-            <div className="badge badge-secondary">+{cart?.length || 0}</div>
-          </button>
-        </Link>
-      </li>*/}
+      )}
     </>
   );
   return (
-    <div className="navbar fixed z-10 max-w-screen-xl mx-auto bg-opacity-30  bg-black-100 text-black">
+    <div className="navbar fixed z-10 max-w-screen-xl mx-auto bg-opacity-30  bg-black-100 text-white">
       <div className="navbar-start">
         <div className="dropdown ">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -85,14 +68,32 @@ const Navbar = () => {
           </ul>
         </div>
         <h2 className="btn btn-ghost normal-case block text-left text-xl">
-          <strong className="text-3xl"> Bistro Boss</strong> <br /> Restaurant
+          <strong className="text-3xl"> Yoga Summer Camp</strong>
         </h2>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navItems}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Get started</a>
+        {user ? (
+          <>
+            <button onClick={handleLogOut} className="btn">
+              log out
+            </button>
+            <button>
+              <img
+                className=" rounded-full w-10"
+                title={user?.displayName}
+                src={user?.photoURL}
+                alt=""
+              />
+            </button>
+          </>
+        ) : (
+          <Link to="/login">
+            <button className="btn">log in</button>
+          </Link>
+        )}
       </div>
     </div>
   );
