@@ -1,52 +1,112 @@
 import React from "react";
-import AwesomeSlider from "react-awesome-slider";
-import "react-awesome-slider/dist/styles.css";
-import withAutoplay from "react-awesome-slider/dist/autoplay";
-import "react-awesome-slider/dist/styles.css";
+
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 //import "./Banner.css";
 
-import slider1 from "../../../assets/images/slider1.jpeg";
-import slider2 from "../../../assets/images/slider2.jpeg";
-import slider3 from "../../../assets/images/slider3.jpeg";
-import slider4 from "../../../assets/images/slider4.jpeg";
+import banA from "../../../assets/images/banA.jpg";
+import banB from "../../../assets/images/banB.jpg";
+import banC from "../../../assets/images/banC.jpg";
+import banD from "../../../assets/images/banD.jpg";
+import {Carousel} from "react-responsive-carousel";
+//import {Typewriter} from "react-simple-typewriter";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Banner = () => {
-  const AutoplaySlider = withAutoplay(AwesomeSlider);
+  AOS.init();
   return (
-    <AwesomeSlider play={true} cancelOnInteraction={false} interval={2000}>
-      {/*<div className=" bg-cover" data-src={slider1} />
-      <div className=" bg-cover" data-src={slider2} />
-      <div className=" bg-cover" data-src={slider3} />
-      <div className=" bg-cover" data-src={slider4} />*/}
-      <div>
-        <div className="relative">
-          <img src={slider1} />
-          <h1 className="absolute text-5xl text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-            KindaCode.com
-          </h1>
-          <h2 className="absolute text-3xl text-amber-400 bottom-4 left-1/2 -translate-x-1/2">
-            Bottom Center
-          </h2>
-          <h3 className="absolute text-2xl text-blue-300 top-5 left-5">
-            Top Left
-          </h3>
-          <h3 className="absolute text-2xl text-green-300 bottom-5 right-5">
-            Bottom Right
-          </h3>
+    <Carousel>
+      <div className="relative">
+        <img className="bg-opacity-30 grayscale-0" src={banA} />
+        <div
+          data-aos="fade-up"
+          data-aos-offset="200"
+          data-aos-delay="50"
+          data-aos-duration="1000"
+          data-aos-easing="ease-in-out"
+          data-aos-mirror="true"
+          data-aos-once="false"
+          data-aos-anchor-placement="top-center"
+          className="absolute ml-14 mb-0 -mt-96 text-start "
+        >
+          <p className="text-white font-bold text-3xl">
+            Kids Yoga Summer Camp Activity <br />
+            Early Bird Offer
+          </p>
+          <button className="btn btn-outline btn-secondary justify-start">
+            Learn More
+          </button>
         </div>
       </div>
-
-      {/* another div image slider */}
-      <div>
-        <img className="object-cover w-full" src={slider2} alt="" />
+      <div className="relative">
+        <img src={banB} />
+        <div
+          data-aos="fade-up"
+          data-aos-offset="200"
+          data-aos-delay="50"
+          data-aos-duration="1000"
+          data-aos-easing="ease-in-out"
+          data-aos-mirror="true"
+          data-aos-once="false"
+          data-aos-anchor-placement="top-center"
+          className="absolute ml-14 mb-0 -mt-96 text-start "
+        >
+          <p className="text-white font-bold text-3xl">
+            Kids Yoga Summer Camp Activity
+            <br />
+            Heal Yourself from here
+          </p>
+          <button className="btn btn-outline btn-secondary justify-start">
+            Learn More
+          </button>
+        </div>
       </div>
-      <div>
-        <img className="object-cover w-full" src={slider3} alt="" />
+      <div className="relative">
+        <img src={banC} />
+        <div
+          data-aos="fade-up"
+          data-aos-offset="200"
+          data-aos-delay="50"
+          data-aos-duration="1000"
+          data-aos-easing="ease-in-out"
+          data-aos-mirror="true"
+          data-aos-once="false"
+          data-aos-anchor-placement="top-center"
+          className="absolute ml-14 mb-0 -mt-96 text-start "
+        >
+          <p className="text-white font-bold text-3xl">
+            Kids Yoga Summer Camp Activity <br />a way to improve inner strength
+            and confidence
+          </p>
+          <button className="btn btn-outline btn-secondary justify-start">
+            Learn More
+          </button>
+        </div>
       </div>
-      <div className="w-cover w-full">
-        <img className="max-w-lg" src={slider4} alt="" />
+      <div className="relative">
+        <img src={banD} />
+        <div
+          data-aos="fade-up"
+          data-aos-offset="200"
+          data-aos-delay="50"
+          data-aos-duration="1000"
+          data-aos-easing="ease-in-out"
+          data-aos-mirror="true"
+          data-aos-once="false"
+          data-aos-anchor-placement="top-center"
+          className="absolute ml-14 mb-0 -mt-96 text-start bg-opacity-20"
+        >
+          <p className="text-white font-bold text-3xl">
+            Kids Yoga Summer Camp Activity
+            <br />
+            Be alive | Be fit | Be relaxed
+          </p>
+          <button className="btn btn-outline btn-secondary justify-start">
+            Learn More
+          </button>
+        </div>
       </div>
-    </AwesomeSlider>
+    </Carousel>
   );
 };
 

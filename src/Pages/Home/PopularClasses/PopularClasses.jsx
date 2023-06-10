@@ -1,14 +1,19 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
+import {useState} from "react";
+import {useEffect} from "react";
 
 const PopularClasses = () => {
   const [classes, setClasses] = useState([]);
-  console.log(classes);
   useEffect(() => {
-    fetch("http://localhost:5003/yogaCamp")
+    fetch("data.json")
       .then((res) => res.json())
       .then((data) => setClasses(data));
   }, []);
-  return <div></div>;
+  return (
+    <div>
+      <h1>popular class will be rendered here</h1>
+    </div>
+  );
 };
 
 export default PopularClasses;
