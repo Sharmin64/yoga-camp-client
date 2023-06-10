@@ -13,7 +13,25 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Banner = () => {
-  AOS.init();
+  AOS.init({
+    // Global settings:
+    disable: false,
+    startEvent: "DOMContentLoaded",
+    initClassName: "aos-init",
+    animatedClassName: "aos-animate",
+    useClassNames: false,
+    disableMutationObserver: false,
+    debounceDelay: 50,
+    throttleDelay: 99,
+
+    offset: 120,
+    delay: 0,
+    duration: 400,
+    easing: "ease",
+    once: false,
+    mirror: false,
+    anchorPlacement: "top-bottom",
+  });
   return (
     <Carousel>
       <div className="relative">
@@ -22,10 +40,9 @@ const Banner = () => {
           data-aos="fade-up"
           data-aos-offset="200"
           data-aos-delay="50"
-          data-aos-duration="1000"
+          data-aos-duration="2000"
           data-aos-easing="ease-in-out"
           data-aos-mirror="true"
-          data-aos-once="false"
           data-aos-anchor-placement="top-center"
           className="absolute ml-14 mb-0 -mt-96 text-start "
         >
@@ -44,10 +61,9 @@ const Banner = () => {
           data-aos="fade-up"
           data-aos-offset="200"
           data-aos-delay="50"
-          data-aos-duration="1000"
+          data-aos-duration="2000"
           data-aos-easing="ease-in-out"
           data-aos-mirror="true"
-          data-aos-once="false"
           data-aos-anchor-placement="top-center"
           className="absolute ml-14 mb-0 -mt-96 text-start "
         >
@@ -67,10 +83,9 @@ const Banner = () => {
           data-aos="fade-up"
           data-aos-offset="200"
           data-aos-delay="50"
-          data-aos-duration="1000"
+          data-aos-duration="2000"
           data-aos-easing="ease-in-out"
           data-aos-mirror="true"
-          data-aos-once="false"
           data-aos-anchor-placement="top-center"
           className="absolute ml-14 mb-0 -mt-96 text-start "
         >
@@ -89,10 +104,9 @@ const Banner = () => {
           data-aos="fade-up"
           data-aos-offset="200"
           data-aos-delay="50"
-          data-aos-duration="1000"
+          data-aos-duration="2000"
           data-aos-easing="ease-in-out"
           data-aos-mirror="true"
-          data-aos-once="false"
           data-aos-anchor-placement="top-center"
           className="absolute ml-14 mb-0 -mt-96 text-start bg-opacity-20"
         >
