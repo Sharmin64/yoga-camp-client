@@ -1,13 +1,13 @@
 import React from "react";
 import {Helmet} from "react-helmet-async";
-//import useClass from "../../../hooks/useClass";
+import useClass from "../../../hooks/useClass";
 
 const MyClass = () => {
-  //const [eClass] = useClass();
-  //const totalEnrolled = eClass.reduce(
-  //  (sum, enrolledClass) => enrolledClass.price + sum,
-  //  0
-  //);
+  const [eClass] = useClass();
+  const totalEnrolled = eClass.reduce(
+    (sum, enrolledClass) => enrolledClass.price + sum,
+    0
+  );
   return (
     <div>
       <Helmet>
@@ -15,7 +15,7 @@ const MyClass = () => {
       </Helmet>
       <div className="flex justify-evenly">
         <h1>Enrolled Class will be </h1>
-        {/*<h1>{totalEnrolled}</h1>*/}
+        <h1>{totalEnrolled}</h1>
         <button className="btn btn-warning">Pay</button>
       </div>
       <div className="overflow-x-auto">

@@ -4,6 +4,8 @@
 
 ## 3.I implemented authentication on login and registration page
 
+## 4..I use hooks and implemented with other function
+
 ## react helmet async
 
 ## react icons installed
@@ -11,5 +13,7 @@
 ## npm install sweetalert2
 
 ## npm i @tanstack/react-query
+
+## npm install axios
 
 ## npm install --save react-awesome-slider

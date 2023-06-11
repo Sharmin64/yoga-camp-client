@@ -3,7 +3,7 @@ import useAuth from "./useAuth";
 import useAxiosSecure from "./useAxiosSecure";
 
 const useClass = () => {
-  //const {user, loading} = useAuth();
+  const {user, loading} = useAuth();
   const [axioxSecure] = useAxiosSecure();
   //const token = localStorage.getItem("access-token");
 
