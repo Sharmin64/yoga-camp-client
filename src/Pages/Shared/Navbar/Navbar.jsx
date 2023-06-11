@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {useContext} from "react";
 import {Link} from "react-router-dom";
 import {AuthContext} from "../../../Providers/AuthProvider";
@@ -18,6 +18,9 @@ const Navbar = () => {
       </li>
       <li>
         <Link to="/instructors">Instructors</Link>
+      </li>
+      <li>
+        <Link to="/dashboard">DashBoard</Link>
       </li>
       <li>
         <Link to="/classes">Classes</Link>

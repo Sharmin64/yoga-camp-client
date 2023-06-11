@@ -12,7 +12,9 @@ const Home = () => {
       </Helmet>
       <Banner />
       <PopularClasses />
-      <ExtraSection />
+      <div className=" w-full ms-4">
+        <ExtraSection />
+      </div>
     </div>
   );
 };
