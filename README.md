@@ -10,4 +10,6 @@
 
 ## npm install sweetalert2
 
+## npm i @tanstack/react-query
+
 ## npm install --save react-awesome-slider

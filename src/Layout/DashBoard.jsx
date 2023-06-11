@@ -1,11 +1,13 @@
 import React from "react";
+import {FaUniversalAccess, FaHome} from "react-icons/fa";
+import {Link, Outlet} from "react-router-dom";
 
 const DashBoard = () => {
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col items-center justify-center">
-        {/* Page content here */}
+        <Outlet />
         <label
           htmlFor="my-drawer-2"
           className="btn btn-primary drawer-button lg:hidden"
@@ -18,11 +20,32 @@ const DashBoard = () => {
         <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
           {/* Sidebar content here */}
           <li>
-            <a>Sidebar Item 1</a>
+            <Link>
+              <FaHome />
+              Student Home
+            </Link>
           </li>
           <li>
-            <a>Sidebar Item 2</a>
+            <Link to="/dashboard/myclass">
+              <FaUniversalAccess />
+              My Class
+            </Link>
           </li>
+          <li>
+            <Link>Payment History</Link>
+          </li>
+          <div className="divider"></div>
+          <li>
+            <Link to="/">
+              <FaHome />
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/classes">Classes</Link>
+          </li>
+          <li></li>
+          <li></li>
         </ul>
       </div>
     </div>
