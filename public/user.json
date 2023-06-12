@@ -1,0 +1,62 @@
+[
+  {
+    "userRole": "student",
+    "email": "student1@example.com",
+    "photoURL": "https://example.com/photos/student1.jpg"
+  },
+  {
+    "userRole": "student",
+    "email": "student2@example.com",
+    "photoURL": "https://example.com/photos/student2.jpg"
+  },
+  {
+    "userRole": "student",
+    "email": "student3@example.com",
+    "photoURL": "https://example.com/photos/student3.jpg"
+  },
+  {
+    "userRole": "instructor",
+    "email": "instructor1@example.com",
+    "photoURL": "https://example.com/photos/instructor1.jpg"
+  },
+  {
+    "userRole": "instructor",
+    "email": "instructor2@example.com",
+    "photoURL": "https://example.com/photos/instructor2.jpg"
+  },
+  {
+    "userRole": "instructor",
+    "email": "instructor3@example.com",
+    "photoURL": "https://example.com/photos/instructor3.jpg"
+  },
+  {
+    "userRole": "admin",
+    "email": "admin1@example.com",
+    "photoURL": "https://example.com/photos/admin1.jpg"
+  },
+  {
+    "userRole": "admin",
+    "email": "admin2@example.com",
+    "photoURL": "https://example.com/photos/admin2.jpg"
+  },
+  {
+    "userRole": "admin",
+    "email": "admin3@example.com",
+    "photoURL": "https://example.com/photos/admin3.jpg"
+  },
+  {
+    "userRole": "student",
+    "email": "student4@example.com",
+    "photoURL": "https://example.com/photos/student4.jpg"
+  },
+  {
+    "userRole": "instructor",
+    "email": "instructor4@example.com",
+    "photoURL": "https://example.com/photos/instructor4.jpg"
+  },
+  {
+    "userRole": "admin",
+    "email": "admin4@example.com",
+    "photoURL": "https://example.com/photos/admin4.jpg"
+  }
+]

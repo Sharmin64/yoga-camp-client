@@ -29,7 +29,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <DashBoard />,
+    element: <DashBoard />, //?ToDo: dashboard needs to be under private route
     children: [
       {
         path: "myclass",

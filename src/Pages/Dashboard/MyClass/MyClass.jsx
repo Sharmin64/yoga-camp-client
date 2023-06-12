@@ -1,6 +1,8 @@
 import React from "react";
 import {Helmet} from "react-helmet-async";
 import useClass from "../../../hooks/useClass";
+import {FaTrashAlt} from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const MyClass = () => {
   const [eClass] = useClass();
@@ -8,6 +10,31 @@ const MyClass = () => {
     (sum, enrolledClass) => enrolledClass.price + sum,
     0
   );
+
+  const handleDelete = (itemName) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5003/classes/${itemName._id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              refetch();
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            }
+          });
+      }
+    });
+  };
   return (
     <div>
       <Helmet>
@@ -18,54 +45,44 @@ const MyClass = () => {
         <h1>{totalEnrolled}</h1>
         <button className="btn btn-warning">Pay</button>
       </div>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto w-full">
         <table className="table">
           {/* head */}
           <thead>
             <tr>
               <th>#</th>
-              <th>Students</th>
+              <th>Image</th>
               <th>ClassName</th>
               <th>Price</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            {/* row 1 */}
-            <tr>
-              <td>
-                <label>
-                  <input type="checkbox" className="checkbox" />
-                </label>
-              </td>
-              <td>
-                <div className="flex items-center space-x-3">
+            {eClass.map((itemName, index) => (
+              <tr key={itemName._id}>
+                <td>{index + 1}</td>
+                <td>
                   <div className="avatar">
                     <div className="mask mask-squircle w-12 h-12">
                       <img
-                        src="/tailwind-css-component-profile-2@56w.png"
+                        src={itemName.classImage}
                         alt="Avatar Tailwind CSS Component"
                       />
                     </div>
                   </div>
-                  <div>
-                    <div className="font-bold">Hart Hagerty</div>
-                    <div className="text-sm opacity-50">United States</div>
-                  </div>
-                </div>
-              </td>
-              <td>
-                Zemlak, Daniel and Leannon
-                <br />
-                <span className="badge badge-ghost badge-sm">
-                  Desktop Support Technician
-                </span>
-              </td>
-              <td>Purple</td>
-              <td>
-                <button className="btn btn-ghost btn-xs">details</button>
-              </td>
-            </tr>
+                </td>
+                <td>{itemName.className}</td>
+                <td>{itemName.price}</td>
+                <td>
+                  <button
+                    onClick={() => handleDelete(itemName)}
+                    className="btn btn-ghost bg-red-400 text-white rounded-full btn-lg"
+                  >
+                    <FaTrashAlt />
+                  </button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

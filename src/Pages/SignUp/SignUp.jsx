@@ -104,7 +104,7 @@ const SignUp = () => {
                   {...register("name", {required: true})}
                   placeholder="name"
                   name="name"
-                  className="input input-bordered"
+                  className="input input-bordered focus:border-red-500 focus:ring-red-500 border-red-500"
                 />
                 {errors.name && (
                   <span className="text-red-600">Name is required</span>
@@ -118,7 +118,7 @@ const SignUp = () => {
                   type="text"
                   {...register("photoURL", {required: true})}
                   placeholder="photoURL"
-                  className="input input-bordered"
+                  className="input input-bordered focus:border-red-500 focus:ring-red-500 border-red-500"
                 />
                 {errors.photoURL && (
                   <span className="text-red-600">Photo Url is required</span>
@@ -133,7 +133,7 @@ const SignUp = () => {
                   placeholder="email"
                   {...register("email", {required: true})}
                   name="email"
-                  className="input input-bordered"
+                  className="input input-bordered focus:border-red-500 focus:ring-red-500 border-red-500"
                 />
                 {errors.email && (
                   <span className="text-red-600">Email id is required</span>
@@ -150,10 +150,10 @@ const SignUp = () => {
                     required: true,
                     minLength: 6,
                     maxLength: 20,
-                    //pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
+                    pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
                   })}
                   name="password"
-                  className="input input-bordered"
+                  className="input input-bordered focus:border-red-500 focus:ring-red-500 border-red-500"
                 />
                 {errors.password?.type === "required" && (
                   <p className="focus:border-red-500 focus:ring-red-500 border-red-500">
