@@ -36,7 +36,7 @@ const MyClass = () => {
     });
   };
   return (
-    <div>
+    <div className="w-full">
       <Helmet>
         <title>Yoga Summer Camp || MyClass</title>
       </Helmet>
@@ -48,7 +48,7 @@ const MyClass = () => {
       <div className="overflow-x-auto w-full">
         <table className="table">
           {/* head */}
-          <thead>
+          <thead className="bg-amber-300">
             <tr>
               <th>#</th>
               <th>Image</th>
