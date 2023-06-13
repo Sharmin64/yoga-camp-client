@@ -1,6 +1,7 @@
 import {useQuery} from "@tanstack/react-query";
 import React from "react";
 import {Helmet} from "react-helmet-async";
+import {toast} from "react-hot-toast";
 import {FaTrashAlt, FaUserShield} from "react-icons/fa";
 
 const AllUsers = () => {
@@ -9,8 +10,21 @@ const AllUsers = () => {
     return res.json();
   });
 
+  const handleMakeAdmin = (user) => {
+    fetch(`http://localhost:5003/users/admin/${user.id}`, {
+      method: "PATCH",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount) {
+          refetch();
+          toast(`${user.name} is now Admin`);
+        }
+      });
+  };
   const handleDelete = () => {
-    alert("tumi gaso  ga ");
+    toast("user deleted ");
   };
   return (
     <div className="w-full">
@@ -40,7 +54,7 @@ const AllUsers = () => {
                     "admin"
                   ) : (
                     <button
-                      onClick={() => handleDelete(user)}
+                      onClick={() => handleMakeAdmin(user)}
                       className="btn btn-ghost bg-orange-400 text-white rounded-full btn-lg"
                     >
                       <FaUserShield />
