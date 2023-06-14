@@ -6,14 +6,19 @@ import {FaTrashAlt, FaUserShield} from "react-icons/fa";
 
 const AllUsers = () => {
   const {data: users = [], refetch} = useQuery(["users"], async () => {
-    const res = await fetch("http://localhost:5003/users");
+    const res = await fetch(
+      "https://assignment-12-summercamp-server.vercel.app/users"
+    );
     return res.json();
   });
 
   const handleMakeAdmin = (user) => {
-    fetch(`http://localhost:5003/users/admin/${user.id}`, {
-      method: "PATCH",
-    })
+    fetch(
+      `https://assignment-12-summercamp-server.vercel.app/users/admin/${user.id}`,
+      {
+        method: "PATCH",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

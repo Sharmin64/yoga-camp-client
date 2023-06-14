@@ -4,7 +4,7 @@ import Instructors from "./Instructors";
 const PopularInstructor = () => {
   const [instructors, setInstructors] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5003/instructors")
+    fetch("https://assignment-12-summercamp-server.vercel.app/instructors")
       .then((res) => res.json())
       .then((data) => {
         setInstructors(data);

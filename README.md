@@ -6,6 +6,14 @@
 
 ## 4..I use hooks and implemented with other function
 
+## 5.used tanstack query and implemeted in code
+
+## 6, I made hook component call it with another function
+
+## server link --https://assignment-12-summercamp-server.vercel.app
+
+## client side code link: https://github.com/programming-hero-web-course1/b712-summer-camp-client-side-Sharmin64
+
 ## react helmet async
 
 ## react icons installed
