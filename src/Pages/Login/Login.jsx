@@ -82,7 +82,7 @@ const Login = () => {
                   <span className="label-text"> Password</span>
                 </label>
                 <input
-                  type="password"
+                  type={passwordEye === false ? "password" : "text"}
                   name="password"
                   placeholder="password"
                   className="input input-bordered"
@@ -107,7 +107,6 @@ const Login = () => {
                   type="submit"
                   value="Login"
                 />
-                {/*<input disabled={disabled} className="btn btn-primary" type="submit" value="Login" />*/}
               </div>
             </form>
             <div className="divider">OR</div>

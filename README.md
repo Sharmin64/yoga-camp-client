@@ -12,7 +12,11 @@
 
 ## server link --https://assignment-12-summercamp-server.vercel.app
 
+## client live link: https://assignment-12-summer-camp.web.app
+
 ## client side code link: https://github.com/programming-hero-web-course1/b712-summer-camp-client-side-Sharmin64
+
+## server side code link: https://github.com/programming-hero-web-course1/b7a12-summer-camp-server_side-Sharmin64
 
 ## react helmet async
 

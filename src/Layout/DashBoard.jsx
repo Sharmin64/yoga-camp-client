@@ -3,7 +3,7 @@ import {FaUniversalAccess, FaHome} from "react-icons/fa";
 import {Link, Outlet} from "react-router-dom";
 
 const DashBoard = () => {
-  //todo : 6 number requirement map kore alada page e table akare dakhate hobe
+ 
   const isAdmin = true;
   return (
     <div className="drawer lg:drawer-open">
