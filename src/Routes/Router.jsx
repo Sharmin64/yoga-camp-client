@@ -7,6 +7,8 @@ import SignUp from "../Pages/SignUp/SignUp";
 import DashBoard from "../Layout/DashBoard";
 import MyClass from "../Pages/Dashboard/MyClass/MyClass";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
+import Classes from "../Pages/Classes/Classes";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -17,6 +19,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "classes",
+        element: <Classes />,
       },
       {
         path: "login",
@@ -30,7 +36,11 @@ export const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <DashBoard />, //?ToDo: dashboard needs to be under private route
+    element: (
+      <PrivateRoute>
+        <DashBoard />
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "myclass",
