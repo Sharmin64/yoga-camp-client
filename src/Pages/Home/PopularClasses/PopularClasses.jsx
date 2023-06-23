@@ -6,20 +6,8 @@ import Class from "./Class";
 const PopularClasses = () => {
   const [classes, setClasses] = useState([]);
 
-  //useEffect(() => {
-  //  //fetch("https://assignment-12-summercamp-server.vercel.app/classes")
-  //  fetch("http://localhost:5003/classes")
-  //    .then((res) => res.json())
-  //    .then((data) => {
-  //      //const popularClasses = data.filter(
-  //      //  (classN) => classN.number === "enrolled"
-  //      //);
-  //      //setClasses(data);
-  //      console.log(data);
-  //    });
-  //}, []);
   useEffect(() => {
-    fetch("https://assignment-12-summercamp-server.vercel.app/classes")
+    fetch("http://localhost:5003/classes")
       .then((res) => res.json())
       .then((data) => setClasses(data));
   }, []);

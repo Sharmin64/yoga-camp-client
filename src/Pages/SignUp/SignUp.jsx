@@ -30,8 +30,9 @@ const SignUp = () => {
       console.log(loggedUser);
       updateUserProfile(data.name, data.photoURL)
         .then(() => {
+          console.log("profile updated");
           const saveUser = {name: data.name, email: data.email};
-          fetch("https://assignment-12-summercamp-server.vercel.app/users", {
+          fetch("http://localhost:5003/users", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -49,8 +50,8 @@ const SignUp = () => {
                   showConfirmButton: false,
                   timer: 1500,
                 });
-                navigate("/");
               }
+              navigate("/");
             });
         })
         .catch((error) => console.log(error));
@@ -117,7 +118,7 @@ const SignUp = () => {
                 <input
                   type="text"
                   {...register("photoURL", {required: true})}
-                  placeholder="photoURL"
+                  placeholder="photo URL"
                   className="input input-bordered focus:border-red-500 focus:ring-red-500 border-red-500"
                 />
                 {errors.photoURL && (

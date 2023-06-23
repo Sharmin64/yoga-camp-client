@@ -1,7 +1,7 @@
 import React from "react";
 
 const Class = ({eClass}) => {
-  const {className, instructorName, instructorImage, enrolled} = eClass;
+  const {className, instructorName, classImage, enrolled} = eClass;
 
   return (
     <div className="my-12">
@@ -9,7 +9,7 @@ const Class = ({eClass}) => {
         <figure>
           <img
             className="object-fit h-64 rounded-md w-full"
-            src={instructorImage}
+            src={classImage}
             alt="Shoes"
           />
         </figure>

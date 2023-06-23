@@ -8,6 +8,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import {app} from "../firebase/firebase.config";
 import {useState} from "react";
@@ -41,6 +42,12 @@ const AuthProvider = ({children}) => {
     setLoading(true);
     return signOut(auth);
   };
+  const updateUserProfile = (name, photo) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photo,
+    });
+  };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -48,7 +55,7 @@ const AuthProvider = ({children}) => {
       console.log("current user", currentUser);
       if (currentUser) {
         axios
-          .post("https://assignment-12-summercamp-server.vercel.app/jwt", {
+          .post("http://localhost:5003/jwt", {
             email: currentUser?.email,
           })
           .then((data) => {
@@ -73,6 +80,7 @@ const AuthProvider = ({children}) => {
     signIn,
     gProvider,
     logOut,
+    updateUserProfile,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

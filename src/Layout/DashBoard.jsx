@@ -3,8 +3,8 @@ import {FaUniversalAccess, FaHome} from "react-icons/fa";
 import {Link, Outlet} from "react-router-dom";
 
 const DashBoard = () => {
- 
   const isAdmin = true;
+  const isInstructors = true;
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -17,10 +17,10 @@ const DashBoard = () => {
           Open drawer
         </label>
       </div>
-      <div className="drawer-side">
+      <div className="drawer-side bg-purple-100">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
-          {isAdmin ? (
+        <ul className="menu p-4 w-80 h-full">
+          {isAdmin && isInstructors ? (
             <>
               <li>
                 <Link to="/dashboard/home">
@@ -37,14 +37,11 @@ const DashBoard = () => {
               <li>
                 <Link to="/dashboard/manageusers">Manage users</Link>
               </li>
-              <li>
-                <Link to="/dashboard/allusers">All users</Link>
-              </li>
             </>
           ) : (
             <>
               <li>
-                <Link>
+                <Link to="/">
                   <FaHome />
                   Student Home
                 </Link>

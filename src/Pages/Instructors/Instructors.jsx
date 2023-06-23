@@ -6,7 +6,7 @@ import {Helmet} from "react-helmet-async";
 const Instructors = () => {
   const [yogaTeachers, setYogaTeachers] = useState([]);
   useEffect(() => {
-    fetch("https://assignment-12-summercamp-server.vercel.app/instructors")
+    fetch("http://localhost:5003/instructors")
       .then((res) => res.json())
       .then((data) => {
         setYogaTeachers(data);

@@ -6,6 +6,7 @@
       "instructorImage": "https://example.com/emma_johnson.jpg",
       "price": "$12",
       "enrolled": 30,
+      "availableSeats":10,
       "description": "A calming and gentle form of yoga that focuses on breathing and basic postures."
   },
   {
@@ -15,6 +16,7 @@
       "instructorImage": "https://example.com/daniel_anderson.jpg",
       "price": "$15",
       "enrolled": 25,
+      "availableSeats":12,
       "description": "A dynamic and energetic style of yoga that synchronizes movement with breath."
   },
   {
@@ -24,6 +26,7 @@
       "instructorImage": "https://example.com/olivia_smith.jpg",
       "price": "$14",
       "enrolled": 20,
+      "availableSeats":15,
       "description": "A physically demanding and structured form of yoga that follows a specific sequence of postures."
   },
   {
@@ -33,6 +36,7 @@
       "instructorImage": "https://example.com/william_brown.jpg",
       "price": "$17",
       "enrolled": 22,
+      "availableSeats":20,
       "description": "A hot yoga practice that consists of a series of 26 postures performed in a heated room."
   },
   {
@@ -42,6 +46,7 @@
       "instructorImage": "https://example.com/sophia_davis.jpg",
       "price": "$16",
       "enrolled": 18,
+      "availableSeats":0,
       "description": "A spiritual and meditative style of yoga that focuses on breathwork, chanting, and energy awakening."
   },
   {
@@ -51,6 +56,7 @@
       "instructorImage": "https://example.com/benjamin_wilson.jpg",
       "price": "$13",
       "enrolled": 28,
+      "availableSeats":0,
       "description": "A slow-paced and passive style of yoga that targets deep connective tissues and joints."
   }
 ]
