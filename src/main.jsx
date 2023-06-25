@@ -17,7 +17,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <QueryClientProvider client={queryClient}>
           <div className="max-w-screen-xl mx-auto">
             <RouterProvider router={router} />
-            <Toaster />
+            <Toaster position="top-center" reverseOrder={false} />
           </div>
         </QueryClientProvider>
       </HelmetProvider>

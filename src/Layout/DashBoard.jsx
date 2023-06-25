@@ -1,6 +1,7 @@
 import React from "react";
 import {FaUniversalAccess, FaHome} from "react-icons/fa";
 import {Link, Outlet} from "react-router-dom";
+import {GrUser, GrUserAdmin, GrUserNew} from "react-icons/gr";
 
 const DashBoard = () => {
   const isAdmin = true;
@@ -24,18 +25,21 @@ const DashBoard = () => {
             <>
               <li>
                 <Link to="/dashboard/home">
-                  <FaHome />
+                  <GrUserAdmin />
                   Admin Home
                 </Link>
               </li>
               <li>
                 <Link to="/dashboard/manageclasses">
-                  <FaUniversalAccess />
+                  <GrUserNew />
                   Manage Class
                 </Link>
               </li>
               <li>
-                <Link to="/dashboard/manageusers">Manage users</Link>
+                <Link to="/dashboard/manageusers">
+                  <GrUser />
+                  Manage users
+                </Link>
               </li>
             </>
           ) : (

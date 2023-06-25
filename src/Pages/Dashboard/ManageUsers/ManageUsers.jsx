@@ -1,6 +1,5 @@
 import React from "react";
 import {useQuery} from "@tanstack/react-query";
-
 import {Helmet} from "react-helmet-async";
 import {toast} from "react-hot-toast";
 import {FaTrashAlt, FaUserShield} from "react-icons/fa";
@@ -12,7 +11,7 @@ const ManageUsers = () => {
   });
 
   const handleMakeAdmin = (user) => {
-    fetch(`http://localhost:5003/users/admin/${user.id}`, {
+    fetch(`http://localhost:5003/users/admin/${user._id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
@@ -20,12 +19,12 @@ const ManageUsers = () => {
         console.log(data);
         if (data.modifiedCount) {
           refetch();
-          toast(`${user.name} is now Admin`);
+          toast.success(`${user.name} is now Admin`);
         }
       });
   };
   const handleMakeInstructor = (user) => {
-    fetch(`http://localhost:5003/users/instructor/${user.id}`, {
+    fetch(`http://localhost:5003/users/instructor/${user._id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
@@ -33,7 +32,7 @@ const ManageUsers = () => {
         console.log(data);
         if (data.modifiedCount) {
           refetch();
-          toast(`${user.name} is now Instructor`);
+          toast.success(`${user.name} is now Instructor`);
         }
       });
   };
@@ -43,7 +42,7 @@ const ManageUsers = () => {
   return (
     <div className="w-full">
       <Helmet>
-        <title>Yoga Summer Camp || AllUsers</title>
+        <title>Yoga Summer Camp || ManageUsers</title>
       </Helmet>
       <div className="overflow-x-auto">
         <table className="table">
@@ -61,7 +60,7 @@ const ManageUsers = () => {
           <tbody>
             {users.map((user, index) => (
               <tr key={user._id}>
-                <th>{index + 1}</th>
+                <td>{index + 1}</td>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
                 <td>

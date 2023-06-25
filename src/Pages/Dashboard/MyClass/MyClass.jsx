@@ -41,7 +41,7 @@ const MyClass = () => {
         <title>Yoga Summer Camp || MyClass</title>
       </Helmet>
       <div className="flex justify-evenly">
-        <h1>Enrolled Class will be </h1>
+        <h1>Enrolled Class</h1>
         <h1>{totalEnrolled}</h1>
         <button className="btn btn-warning">Pay</button>
       </div>

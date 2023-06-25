@@ -50,8 +50,8 @@ const SignUp = () => {
                   showConfirmButton: false,
                   timer: 1500,
                 });
+                navigate(from, {replace: true});
               }
-              navigate("/");
             });
         })
         .catch((error) => console.log(error));
