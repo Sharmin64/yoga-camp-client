@@ -1,7 +1,7 @@
 import React from "react";
 
-const Class = ({eClass}) => {
-  const {className, instructorName, classImage, enrolled} = eClass;
+const Class = ({classItem}) => {
+  const {className, instructorName, classImage, enrolled} = classItem;
 
   return (
     <div className="my-12">

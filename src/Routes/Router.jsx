@@ -5,13 +5,15 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import DashBoard from "../Layout/DashBoard";
-import MyClass from "../Pages/Dashboard/MyClass/MyClass";
 
 import Classes from "../Pages/Classes/Classes";
 import PrivateRoute from "./PrivateRoute";
 import Instructors from "../Pages/Instructors/Instructors";
 import ManageUsers from "../Pages/Dashboard/ManageUsers/ManageUsers";
 import ManageClasses from "../Pages/Dashboard/ManageClasses/ManageClasses";
+import MyEnrolledClass from "../Pages/Dashboard/MyEnrolledClass/MyEnrolledClass";
+import MySelectedClass from "../Pages/Dashboard/MyClass/MySelectedClass";
+import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
 
 export const router = createBrowserRouter([
   {
@@ -50,8 +52,8 @@ export const router = createBrowserRouter([
     ),
     children: [
       {
-        path: "myclass",
-        element: <MyClass />,
+        path: "myselectedclass",
+        element: <MySelectedClass />,
       },
 
       {
@@ -61,6 +63,14 @@ export const router = createBrowserRouter([
       {
         path: "manageclasses",
         element: <ManageClasses />,
+      },
+      {
+        path: "myenrolledclass",
+        element: <MyEnrolledClass />,
+      },
+      {
+        path: "paymenthistory",
+        element: <PaymentHistory />,
       },
     ],
   },

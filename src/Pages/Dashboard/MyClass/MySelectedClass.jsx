@@ -4,7 +4,7 @@ import useClass from "../../../hooks/useClass";
 import {FaTrashAlt} from "react-icons/fa";
 import Swal from "sweetalert2";
 
-const MyClass = () => {
+const MySelectedClass = () => {
   const [eClass] = useClass();
   const totalEnrolled = eClass.reduce(
     (sum, enrolledClass) => enrolledClass.price + sum,
@@ -41,7 +41,7 @@ const MyClass = () => {
         <title>Yoga Summer Camp || MyClass</title>
       </Helmet>
       <div className="flex justify-evenly">
-        <h1>Enrolled Class</h1>
+        <h1>Selected Class</h1>
         <h1>{totalEnrolled}</h1>
         <button className="btn btn-warning">Pay</button>
       </div>
@@ -90,4 +90,4 @@ const MyClass = () => {
   );
 };
 
-export default MyClass;
+export default MySelectedClass;

@@ -1,10 +1,13 @@
 import React from "react";
-import {FaUniversalAccess, FaHome} from "react-icons/fa";
+import {FaUniversalAccess, FaHome, FaWallet} from "react-icons/fa";
 import {Link, Outlet} from "react-router-dom";
 import {GrUser, GrUserAdmin, GrUserNew} from "react-icons/gr";
+import useAdmin from "../hooks/useAdmin";
 
 const DashBoard = () => {
-  const isAdmin = true;
+  //const isAdmin = true;
+  const [isAdmin] = useAdmin();
+
   const isInstructors = true;
   return (
     <div className="drawer lg:drawer-open">
@@ -51,13 +54,21 @@ const DashBoard = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/dashboard/myclass">
+                <Link to="/dashboard/myselectedclass">
                   <FaUniversalAccess />
-                  My Class
+                  My Selected Class
                 </Link>
               </li>
               <li>
-                <Link>Payment History</Link>
+                <Link to="/dashboard/myenrolledclass">
+                  <FaUniversalAccess />
+                  My Enrolled Class
+                </Link>
+              </li>
+              <li>
+                <Link to="/dashboard/paymenthistory">
+                  <FaWallet /> Payment History
+                </Link>
               </li>
             </>
           )}
