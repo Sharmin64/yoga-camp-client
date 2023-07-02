@@ -38,7 +38,7 @@ const MySelectedClass = () => {
   return (
     <div className="w-full">
       <Helmet>
-        <title>Yoga Summer Camp || MyClass</title>
+        <title>CorePower Yoga || MyClass</title>
       </Helmet>
       <div className="flex justify-evenly">
         <h1>Selected Class</h1>

@@ -18,7 +18,7 @@ const Classes = () => {
   return (
     <div className="container">
       <Helmet>
-        <title>Yoga Summer Camp || Classes</title>
+        <title>CorePower Yoga || Classes</title>
       </Helmet>
       <h1 className="text-center py-12  font-bold md:text-5xl text-4xl   bg-amber-200">
         Our Classes

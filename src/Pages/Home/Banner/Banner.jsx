@@ -47,7 +47,7 @@ const Banner = () => {
           className="absolute ml-14 mb-0 -mt-96 text-start "
         >
           <p className="text-white font-bold text-3xl">
-            Kids Yoga Summer Camp Activity <br />
+            Kids CorePower Yoga Activity <br />
             Early Bird Offer
           </p>
           <button className="btn btn-outline btn-secondary justify-start">
@@ -68,7 +68,7 @@ const Banner = () => {
           className="absolute ml-14 mb-0 -mt-96 text-start "
         >
           <p className="text-white font-bold text-3xl">
-            Kids Yoga Summer Camp Activity
+            Kids CorePower Yoga Activity
             <br />
             Heal Yourself from here
           </p>
@@ -90,7 +90,7 @@ const Banner = () => {
           className="absolute ml-14 mb-0 -mt-96 text-start "
         >
           <p className="text-white font-bold text-3xl">
-            Kids Yoga Summer Camp Activity <br />a way to improve inner strength
+            Kids CorePower Yoga Activity <br />a way to improve inner strength
             and confidence
           </p>
           <button className="btn btn-outline btn-secondary justify-start">
@@ -111,7 +111,7 @@ const Banner = () => {
           className="absolute ml-14 mb-0 -mt-96 text-start bg-opacity-20"
         >
           <p className="text-white font-bold text-3xl">
-            Kids Yoga Summer Camp Activity
+            Kids CorePower Yoga Activity
             <br />
             Be alive | Be fit | Be relaxed
           </p>

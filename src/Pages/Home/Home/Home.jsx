@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div>
       <Helmet>
-        <title>Yoga Summer Camp || Home</title>
+        <title>CorePower Yoga || Home</title>
       </Helmet>
       <Banner />
       <PopularClasses />

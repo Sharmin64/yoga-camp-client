@@ -16,7 +16,7 @@ const Instructors = () => {
   return (
     <div>
       <Helmet>
-        <title>Yoga Summer Camp || Instructors</title>
+        <title>CorePower Yoga || Instructors</title>
       </Helmet>
       <h1 className="text-center py-12 font-bold font-mono text-3xl bg-amber-200">
         Yoga Instructors

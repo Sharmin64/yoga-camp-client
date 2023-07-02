@@ -71,7 +71,7 @@ const Navbar = () => {
           </ul>
         </div>
         <h2 className="btn btn-ghost normal-case block text-left text-xl">
-          <strong className="text-3xl"> Yoga Summer Camp</strong>
+          <strong className="text-3xl"> CorePower Yoga </strong>
         </h2>
       </div>
       <div className="navbar-center hidden lg:flex">

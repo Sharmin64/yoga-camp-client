@@ -5,7 +5,7 @@ const Footer = () => {
     <div>
       <footer className="footer p-10 bg-base-200 text-base-content">
         <div>
-          <strong className="footer-title">Yoga Summer Camp</strong>
+          <strong className="footer-title">CorePower Yoga </strong>
           <a className="link link-hover">Classes</a>
           <a className="link link-hover">Instructors</a>
           <a className="link link-hover">Contact Us</a>

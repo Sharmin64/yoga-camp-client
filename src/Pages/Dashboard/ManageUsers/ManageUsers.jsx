@@ -44,7 +44,7 @@ const ManageUsers = () => {
   return (
     <div className="w-full">
       <Helmet>
-        <title>Yoga Summer Camp || ManageUsers</title>
+        <title>CorePower Yoga || ManageUsers</title>
       </Helmet>
       <div className="overflow-x-auto">
         <table className="table">
