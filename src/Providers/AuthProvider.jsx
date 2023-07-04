@@ -13,7 +13,7 @@ import {
 import {app} from "../firebase/firebase.config";
 import {useState} from "react";
 import {useEffect} from "react";
-import axios from "axios";
+//import axios from "axios";
 
 export const AuthContext = createContext(null);
 
@@ -55,7 +55,7 @@ const AuthProvider = ({children}) => {
   //    console.log("current user", currentUser);
   //    if (currentUser) {
   //      axios
-  //        .post("http://localhost:5003/jwt", {
+  //        .post("${import.meta.env.VITE_API_URL}/jwt", {
   //          email: currentUser?.email,
   //        })
   //        .then((data) => {

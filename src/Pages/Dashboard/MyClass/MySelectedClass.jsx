@@ -22,7 +22,7 @@ const MySelectedClass = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5003/classes/${itemName._id}`, {
+        fetch(`${import.meta.env.VITE_API_URL}/classes/${itemName._id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

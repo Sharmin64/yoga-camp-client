@@ -6,7 +6,7 @@ import {Helmet} from "react-helmet-async";
 const Instructors = () => {
   const [yogaTeachers, setYogaTeachers] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5003/instructors")
+    fetch(`${import.meta.env.VITE_API_URL}/instructors`)
       .then((res) => res.json())
       .then((data) => {
         setYogaTeachers(data);

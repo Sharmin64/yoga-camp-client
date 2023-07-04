@@ -3,17 +3,17 @@ import {useQuery} from "@tanstack/react-query";
 import {Helmet} from "react-helmet-async";
 import {toast} from "react-hot-toast";
 import {FaTrashAlt, FaUserShield} from "react-icons/fa";
-import useAxiosSecure from "../../../hooks/useAxiosSecure";
+//import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const ManageUsers = () => {
-  const [axiosSecure] = useAxiosSecure();
+  //const [axiosSecure] = useAxiosSecure();
   const {data: users = [], refetch} = useQuery(["users"], async () => {
     const res = await axiosSecure.get("/users");
     return res.data;
   });
 
   const handleMakeAdmin = (user) => {
-    fetch(`http://localhost:5003/users/admin/${user._id}`, {
+    fetch(`${import.meta.env.VITE_API_URL}/users/admin/${user._id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
@@ -26,7 +26,7 @@ const ManageUsers = () => {
       });
   };
   const handleMakeInstructor = (user) => {
-    fetch(`http://localhost:5003/users/instructor/${user._id}`, {
+    fetch(`${import.meta.env.VITE_API_URL}/users/instructor/${user._id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())

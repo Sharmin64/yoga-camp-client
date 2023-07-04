@@ -10,7 +10,7 @@
 
 ## 6, I made hook component call it with another function
 
-## server link --http://localhost:5003
+## server link --${import.meta.env.VITE_API_URL}
 
 ## client live link: https://assignment-12-summer-camp.web.app
 

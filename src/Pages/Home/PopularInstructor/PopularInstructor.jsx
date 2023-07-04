@@ -4,7 +4,7 @@ import Instructors from "./Instructors";
 const PopularInstructor = () => {
   const [instructors, setInstructors] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5003/instructors")
+    fetch(`${import.meta.env.VITE_API_URL}/instructors`)
       .then((res) => res.json())
       .then((data) => {
         setInstructors(data);

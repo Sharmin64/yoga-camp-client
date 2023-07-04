@@ -32,7 +32,7 @@ const SignUp = () => {
         .then(() => {
           console.log("profile updated");
           const saveUser = {name: data.name, email: data.email};
-          fetch("http://localhost:5003/users", {
+          fetch(`${import.meta.env.VITE_API_URL}/users`, {
             method: "POST",
             headers: {
               "content-type": "application/json",

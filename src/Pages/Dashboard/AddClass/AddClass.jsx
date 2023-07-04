@@ -47,7 +47,7 @@ const AddClass = () => {
       email,
     };
 
-    fetch("http://localhost:5003/postClass", {
+    fetch(`${import.meta.env.VITE_API_URL}/postClass`, {
       method: "POST",
       headers: {},
     });

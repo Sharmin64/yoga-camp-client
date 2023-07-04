@@ -4,19 +4,19 @@ import {Link, Outlet} from "react-router-dom";
 import {GrUser, GrUserAdmin} from "react-icons/gr";
 import useAuth from "../hooks/useAuth";
 import {useEffect} from "react";
-//import useAdmin from "../hooks/useAdmin";
+import useAdmin from "../hooks/useAdmin";
 
 const DashBoard = () => {
   const {user} = useAuth();
   const [role, setRole] = useState("");
   //const isAdmin = true;
-  //const [isAdmin] = useAdmin();
+  const [isAdmin] = useAdmin();
 
   //const isInstructors = true;
   useEffect(() => {
-    fetch("http://localhost:5003/users")
+    fetch(`${import.meta.env.VITE_API_URL}/users`)
       .then((res) => res.json())
-      .then((data) => console.log(data.role));
+      .then((data) => setRole(data.role));
   });
   return (
     <div className="drawer lg:drawer-open">
