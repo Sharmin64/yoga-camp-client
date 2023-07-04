@@ -12,6 +12,9 @@ const Students = ({student}) => {
         />
       </figure>
       <div className="card-body">
+        <div className="justify-end">
+          <button>Select Course</button>
+        </div>
         <h2 className="card-title">Instructor Name:{instructorName}</h2>
         <p>Enroll:{enrolled}</p>
         <p>{price}</p>

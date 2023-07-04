@@ -1,7 +1,7 @@
 import React from "react";
-import {FaUniversalAccess, FaHome, FaWallet} from "react-icons/fa";
+import {FaUniversalAccess, FaHome, FaWallet, FaRegEdit} from "react-icons/fa";
 import {Link, Outlet} from "react-router-dom";
-import {GrUser, GrUserAdmin, GrUserNew} from "react-icons/gr";
+import {GrUser, GrUserAdmin} from "react-icons/gr";
 import useAdmin from "../hooks/useAdmin";
 
 const DashBoard = () => {
@@ -34,7 +34,7 @@ const DashBoard = () => {
               </li>
               <li>
                 <Link to="/dashboard/manageclasses">
-                  <GrUserNew />
+                  <FaRegEdit />
                   Manage Class
                 </Link>
               </li>
@@ -42,6 +42,12 @@ const DashBoard = () => {
                 <Link to="/dashboard/manageusers">
                   <GrUser />
                   Manage users
+                </Link>
+              </li>
+              <li>
+                <Link to="/dashboard/addclass">
+                  <GrUser />
+                  Add A Class
                 </Link>
               </li>
             </>
@@ -83,8 +89,8 @@ const DashBoard = () => {
           <li>
             <Link to="/classes">Classes</Link>
           </li>
-          <li></li>
-          <li></li>
+          {/*<li></li>
+          <li></li>*/}
         </ul>
       </div>
     </div>
