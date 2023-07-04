@@ -1,14 +1,23 @@
-import React from "react";
+import React, {useState} from "react";
 import {FaUniversalAccess, FaHome, FaWallet, FaRegEdit} from "react-icons/fa";
 import {Link, Outlet} from "react-router-dom";
 import {GrUser, GrUserAdmin} from "react-icons/gr";
-import useAdmin from "../hooks/useAdmin";
+import useAuth from "../hooks/useAuth";
+import {useEffect} from "react";
+//import useAdmin from "../hooks/useAdmin";
 
 const DashBoard = () => {
+  const {user} = useAuth();
+  const [role, setRole] = useState("");
   //const isAdmin = true;
-  const [isAdmin] = useAdmin();
+  //const [isAdmin] = useAdmin();
 
-  const isInstructors = true;
+  //const isInstructors = true;
+  useEffect(() => {
+    fetch("http://localhost:5003/users")
+      .then((res) => res.json())
+      .then((data) => console.log(data.role));
+  });
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />

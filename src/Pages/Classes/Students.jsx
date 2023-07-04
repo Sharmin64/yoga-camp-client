@@ -1,7 +1,16 @@
 import React from "react";
 
-const Students = ({student}) => {
-  const {instructorName, classImage, enrolled, price, description} = student;
+const Students = ({student, refetch}) => {
+  console.log(student);
+  const {
+    _id,
+    instructorName,
+    classImage,
+    enrolled,
+    availableSeats,
+    price,
+    description,
+  } = student;
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
       <figure>
@@ -17,7 +26,8 @@ const Students = ({student}) => {
         </div>
         <h2 className="card-title">Instructor Name:{instructorName}</h2>
         <p>Enroll:{enrolled}</p>
-        <p>{price}</p>
+        <p>Price:{price}</p>
+        <p>Seats:{availableSeats}</p>
         <p>{description}</p>
       </div>
     </div>

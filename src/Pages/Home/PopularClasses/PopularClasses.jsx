@@ -9,7 +9,7 @@ const PopularClasses = () => {
   useEffect(() => {
     fetch("http://localhost:5003/classes")
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => setClasses(data));
   }, []);
   return (
     <>
