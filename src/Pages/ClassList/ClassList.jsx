@@ -16,7 +16,7 @@ const ClassList = ({classData, setReload, reload, openModal, index}) => {
     seats,
     status,
   } = classData;
-
+  //todo: comment kora code gulo implement kora baki
   //  const handleStatus = (id, status) => {
   //    const state = { status: status }
   //    setReload(true)

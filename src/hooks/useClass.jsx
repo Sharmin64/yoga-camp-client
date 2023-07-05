@@ -4,7 +4,7 @@ import useAuth from "./useAuth";
 
 const useClass = () => {
   const {user, loading} = useAuth();
-  const [axioxSecure] = useAxiosSecure();
+  //const [axioxSecure] = useAxiosSecure();
   //const token = localStorage.getItem("access-token");
 
   const {refetch, data: eClass = []} = useQuery({

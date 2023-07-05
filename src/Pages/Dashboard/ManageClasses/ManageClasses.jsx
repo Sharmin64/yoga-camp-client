@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {useState} from "react";
 import {Helmet} from "react-helmet-async";
 import ClassList from "../../ClassList/ClassList";
@@ -13,7 +13,46 @@ const ManageClasses = () => {
   const [feedback, setFeedback] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   //const [temp, setTemp] = useState(1);
+  //todo : aro onk kaj ekhane bake ase
 
+  //  useEffect(() => {
+  //    // console.log(user.email);
+  //    fetch(`${import.meta.env.VITE_API_URL}/role/email/${user?.email}`)
+  //        .then(res => res.json())
+  //        .then(data => setRole(data.role))
+  //}, [user?.email])
+
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_API_URL}/selected/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (role === "Student") {
+          setClasses(data);
+        }
+      });
+  }, [user?.email, role]);
+
+  //  useEffect(() => {
+
+  //    fetch(`${import.meta.env.VITE_API_URL}/myClasses/${user?.email}`)
+  //        .then(res => res.json())
+  //        .then(data => {
+  //            if (role === 'Instructor') {
+  //                setClasses(data)
+  //            }
+  //        })
+  //}, [user.email, role, temp])
+  //console.log(temp);
+
+  //  useEffect(() => {
+  //    fetch(`${import.meta.env.VITE_API_URL}/classes`)
+  //        .then(res => res.json())
+  //        .then(data => {
+  //            if (role === 'Admin') {
+  //                setClasses(data);
+  //            }
+  //        });
+  //}, [user?.email, role, reload]);
   return (
     <div>
       <Helmet>
@@ -74,6 +113,18 @@ const ManageClasses = () => {
               ></ClassList>
             ))}
           </tbody>
+          <tbody className={`divide-y ${role !== "Instructor" && "hidden"}`}>
+            {/*{
+    classes.map((classData, index) => <InstructorClassList key={classData._id} openModal={openModal} openClassUpdate={openClassUpdate} reload={reload} setReload={setReload} classData={classData} index={index} ></InstructorClassList>)
+}*/}
+          </tbody>
+          {role === "Student" && (
+            <tbody className={`divide-y ${role !== "Student" && "hidden"}`}>
+              {/*{
+    classes.map((classData, index) => <MySelectedClass key={classData._id} handleDelete={handleDelete} classData={classData} index={index} />)
+}*/}
+            </tbody>
+          )}
         </table>
       </div>
     </div>

@@ -49,8 +49,16 @@ const AddClass = () => {
 
     fetch(`${import.meta.env.VITE_API_URL}/postClass`, {
       method: "POST",
-      headers: {},
-    });
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        navigate("/classes");
+      })
+      .catch((error) => {
+        console.log("error occured", error.message);
+      });
   };
   //onSubmit={handleAddClass}
   return (
