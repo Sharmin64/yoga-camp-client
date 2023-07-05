@@ -1,6 +1,7 @@
 import React from "react";
 
-const ClassList = ({classData, setReload, reload, openModal, index}) => {
+const ClassList = ({classData, setReload, reload, index}) => {
+  console.log(classData);
   const {
     _id,
     className,
@@ -50,12 +51,14 @@ const ClassList = ({classData, setReload, reload, openModal, index}) => {
             </div>
           </div>
         </td>
+
+        <td>{className}</td>
         <td>{instructorName}</td>
         <td>{email}</td>
         <td>{price}</td>
         <td>{enrolled}</td>
-        <td>{availableSeats}</td>
-        <td>{description}</td>
+
+        <td>{seats}</td>
         <td>
           {(status === "Pending" && (
             <p className=" text-yellow-400">{status}</p>

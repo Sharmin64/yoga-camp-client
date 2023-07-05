@@ -18,11 +18,14 @@ import {MdPayments} from "react-icons/md";
 import {BiAddToQueue} from "react-icons/bi";
 import useAuth from "../hooks/useAuth";
 import {useEffect} from "react";
+import useRole from "../hooks/useRole";
 //import useAdmin from "../hooks/useAdmin";
 
 const DashBoard = () => {
   const {user} = useAuth();
-  const [role, setRole] = useState("");
+  const role = useRole();
+  //const [role, setRole] = useState("");
+  console.log(role);
   //const isAdmin = true;
   //const [isAdmin] = useAdmin();
 
@@ -33,12 +36,13 @@ const DashBoard = () => {
   //    .then((data) => setRole(data.role));
   //});
 
-  useEffect(() => {
-    // console.log(user.email);
-    fetch(`${import.meta.env.VITE_API_URL}/role/email/${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => setRole(data.role));
-  }, [user?.email]);
+  //useEffect(() => {
+  //  console.log(user?.email);
+
+  //  fetch(`${import.meta.env.VITE_API_URL}/role/email/${user?.email}`)
+  //    .then((res) => res.json())
+  //    .then((data) => setRole(data.role));
+  //}, [user?.email]);
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -51,7 +55,7 @@ const DashBoard = () => {
           Open drawer
         </label>
       </div>
-      <div className="drawer-side bg-purple-100">
+      <div className="drawer-side bg-indigo-200">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 h-full">
           {/*{isAdmin && isInstructors ? (
@@ -108,48 +112,45 @@ const DashBoard = () => {
               </li>
             </>
           )}*/}
-          {role === "Admin" && (
-            <li>
-              <NavLink
-                to="/dashboard/manageclasses"
-                className={({isActive}) =>
-                  isActive
-                    ? "flex items-center p-2 text-slate-800 rounded-lg dark:text-gray-50 hover:bg-gray-200 dark:hover:bg-gray-700"
-                    : "flex items-center p-2 text-white rounded-lg dark:text-gray-400 hover:bg-slate-700 dark:hover:bg-gray-700"
-                }
-              >
-                <FaRegEdit className="w-6 h-6 transition duration-75" />
-                <span className="flex-1 ml-3 whitespace-nowrap ">
-                  Manage Classes
-                </span>
-              </NavLink>
-            </li>
-          )}
-          {role === "Instructor" && (
-            <li>
-              <NavLink
-                to="/dashboard/myclasses"
-                className={({isActive}) =>
-                  isActive
-                    ? "flex items-center p-2 text-slate-800 rounded-lg dark:text-gray-50 hover:bg-gray-200 dark:hover:bg-gray-700"
-                    : "flex items-center p-2 text-white rounded-lg dark:text-gray-400 hover:bg-slate-700 dark:hover:bg-gray-700"
-                }
-              >
-                <FaRegEdit className="w-6 h-6 transition duration-75" />
-                <span className="flex-1 ml-3 whitespace-nowrap ">
-                  My Classes
-                </span>
-              </NavLink>
-            </li>
-          )}
-          {role === "Student" && (
+
+          <li>
+            <NavLink
+              to="/dashboard/manageclasses"
+              className={({isActive}) =>
+                isActive
+                  ? "flex items-center p-2 text-slate-800 rounded-lg dark:text-gray-50 hover:bg-gray-200 dark:hover:bg-gray-700"
+                  : "flex items-center p-2 text-black rounded-lg dark:text-gray-400 hover:bg-slate-700 dark:hover:bg-gray-700"
+              }
+            >
+              <FaRegEdit className="w-6 h-6 transition duration-75" />
+              <span className="flex-1 ml-3 whitespace-nowrap ">
+                Manage Classes
+              </span>
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink
+              to="/dashboard/myclasses"
+              className={({isActive}) =>
+                isActive
+                  ? "flex items-center p-2 text-slate-800 rounded-lg dark:text-gray-50 hover:bg-gray-200 dark:hover:bg-gray-700"
+                  : "flex items-center p-2 text-black rounded-lg dark:text-gray-400 hover:bg-slate-700 dark:hover:bg-gray-700"
+              }
+            >
+              <FaRegEdit className="w-6 h-6 transition duration-75" />
+              <span className="flex-1 ml-3 whitespace-nowrap ">My Classes</span>
+            </NavLink>
+          </li>
+
+          {role === "student" && (
             <li>
               <NavLink
                 to="/dashboard/myselectedclass"
                 className={({isActive}) =>
                   isActive
                     ? "flex items-center p-2 text-slate-800 rounded-lg dark:text-gray-50 hover:bg-gray-200 dark:hover:bg-gray-700"
-                    : "flex items-center p-2 text-white rounded-lg dark:text-gray-400 hover:bg-slate-700 dark:hover:bg-gray-700"
+                    : "flex items-center p-2 text-black rounded-lg dark:text-gray-400 hover:bg-slate-700 dark:hover:bg-gray-700"
                 }
               >
                 <BsUiChecks className="w-6 h-6 transition duration-75" />
@@ -159,14 +160,15 @@ const DashBoard = () => {
               </NavLink>
             </li>
           )}
-          {role === "Student" && (
+
+          {role === "student" && (
             <li>
               <NavLink
                 to="/dashboard/myenrolledclass"
                 className={({isActive}) =>
                   isActive
                     ? "flex items-center p-2 text-slate-800 rounded-lg dark:text-gray-50 hover:bg-gray-200 dark:hover:bg-gray-700"
-                    : "flex items-center p-2 text-white rounded-lg dark:text-gray-400 hover:bg-slate-700 dark:hover:bg-gray-700"
+                    : "flex items-center p-2 text-black rounded-lg dark:text-gray-400 hover:bg-slate-700 dark:hover:bg-gray-700"
                 }
               >
                 <BsUiChecksGrid className="w-6 h-6 transition duration-75" />
@@ -176,14 +178,15 @@ const DashBoard = () => {
               </NavLink>
             </li>
           )}
-          {role === "Student" && (
+
+          {role === "student" && (
             <li>
               <NavLink
                 to="/dashboard/paymenthistory"
                 className={({isActive}) =>
                   isActive
                     ? "flex items-center p-2 text-slate-800 rounded-lg dark:text-gray-50 hover:bg-gray-200 dark:hover:bg-gray-700"
-                    : "flex items-center p-2 text-white rounded-lg dark:text-gray-400 hover:bg-slate-700 dark:hover:bg-gray-700"
+                    : "flex items-center p-2 text-black rounded-lg dark:text-gray-400 hover:bg-slate-700 dark:hover:bg-gray-700"
                 }
               >
                 <MdPayments className="w-6 h-6 transition duration-75" />
@@ -194,40 +197,38 @@ const DashBoard = () => {
             </li>
           )}
 
-          {role === "Instructor" && (
-            <li>
-              <NavLink
-                to="/dashboard/addclass"
-                className={({isActive}) =>
-                  isActive
-                    ? "flex items-center p-2 text-slate-800 rounded-lg dark:text-gray-50 hover:bg-gray-200 dark:hover:bg-gray-700"
-                    : "flex items-center p-2 text-white rounded-lg dark:text-gray-400 hover:bg-slate-700 dark:hover:bg-gray-700"
-                }
-              >
-                <BiAddToQueue className="w-6 h-6 transition duration-75" />
-                <span className="flex-1 ml-3 whitespace-nowrap ">
-                  Add a Class
-                </span>
-              </NavLink>
-            </li>
-          )}
-          {role === "Admin" && (
-            <li>
-              <NavLink
-                to="/dashboard/manageusers"
-                className={({isActive}) =>
-                  isActive
-                    ? "flex items-center p-2 text-slate-800 rounded-lg dark:text-gray-50 hover:bg-gray-200 dark:hover:bg-gray-700"
-                    : "flex items-center p-2 text-white rounded-lg dark:text-gray-400 hover:bg-slate-700 dark:hover:bg-gray-700"
-                }
-              >
-                <FaUsers className="w-6 h-6 transition duration-75 " />
-                <span className="flex-1 ml-3 whitespace-nowrap ">
-                  Manage Users
-                </span>
-              </NavLink>
-            </li>
-          )}
+          <li>
+            <NavLink
+              to="/dashboard/addclass"
+              className={({isActive}) =>
+                isActive
+                  ? "flex items-center p-2 text-slate-800 rounded-lg dark:text-gray-50 hover:bg-gray-200 dark:hover:bg-gray-700"
+                  : "flex items-center p-2 text-black rounded-lg dark:text-gray-400 hover:bg-slate-700 dark:hover:bg-gray-700"
+              }
+            >
+              <BiAddToQueue className="w-6 h-6 transition duration-75" />
+              <span className="flex-1 ml-3 whitespace-nowrap ">
+                Add a Class
+              </span>
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink
+              to="/dashboard/manageusers"
+              className={({isActive}) =>
+                isActive
+                  ? "flex items-center p-2 text-slate-800 rounded-lg dark:text-gray-50 hover:bg-gray-200 dark:hover:bg-gray-700"
+                  : "flex items-center p-2 text-black rounded-lg dark:text-gray-400 hover:bg-slate-700 dark:hover:bg-gray-700"
+              }
+            >
+              <FaUsers className="w-6 h-6 transition duration-75 " />
+              <span className="flex-1 ml-3 whitespace-nowrap ">
+                Manage Users
+              </span>
+            </NavLink>
+          </li>
+
           <div className="divider"></div>
           <li>
             <NavLink

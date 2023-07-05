@@ -3,16 +3,19 @@ import {useState} from "react";
 import {Helmet} from "react-helmet-async";
 import ClassList from "../../ClassList/ClassList";
 import useAuth from "../../../hooks/useAuth";
+import useRole from "../../../hooks/useRole";
 
 const ManageClasses = () => {
   const {user, loading} = useAuth();
   const [classes, setClasses] = useState([]);
+  const role = useRole();
   const [reload, setReload] = useState(true);
-  const [role, setRole] = useState("");
+  //const [role, setRole] = useState("");
   const [feedbackId, setFeedbackId] = useState("");
   const [feedback, setFeedback] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   //const [temp, setTemp] = useState(1);
+  console.log(classes);
   //todo : aro onk kaj ekhane bake ase
 
   //  useEffect(() => {
@@ -32,102 +35,112 @@ const ManageClasses = () => {
       });
   }, [user?.email, role]);
 
-  //  useEffect(() => {
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_API_URL}/myClasses/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (role === "Instructor") {
+          setClasses(data);
+        }
+      });
+  }, [user?.email, role]);
 
-  //    fetch(`${import.meta.env.VITE_API_URL}/myClasses/${user?.email}`)
-  //        .then(res => res.json())
-  //        .then(data => {
-  //            if (role === 'Instructor') {
-  //                setClasses(data)
-  //            }
-  //        })
-  //}, [user.email, role, temp])
-  //console.log(temp);
-
-  //  useEffect(() => {
-  //    fetch(`${import.meta.env.VITE_API_URL}/classes`)
-  //        .then(res => res.json())
-  //        .then(data => {
-  //            if (role === 'Admin') {
-  //                setClasses(data);
-  //            }
-  //        });
-  //}, [user?.email, role, reload]);
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_API_URL}/classes`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (role === "admin") {
+          setClasses(data);
+          console.log(data);
+        }
+      });
+  }, [user?.email, role, reload]);
   return (
-    <div>
-      <Helmet>
-        <title>CorePower Yoga || Dashboard||ManageClasses</title>
-      </Helmet>
-      <div className=" overflow-x-scrol">
-        <table className="table">
-          {/* head */}
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Picture</th>
-              <th>Class Name</th>
-              {role !== "Instructor" && (
-                <th className="pl- text-center">Instructor</th>
-              )}
-              {role === "Instructor" && (
-                <th className="pl- text-center">Price</th>
-              )}
-              <th>Instructor Email</th>
-              <th>Available Seats</th>
-              {role === "Admin" && <th className=" text-center">Price</th>}
-              {role === "Instructor" && (
-                <th className=" text-center">Enrolled</th>
-              )}
-              {(role === "Admin" || role === "Instructor") && (
-                <th className="pl- text-center">Status</th>
-              )}
-              {role === "Student" && <th className="pl-16">Price</th>}
-              {role === "Student" && <th className="pl- text-center">Pay</th>}
-              {role === "Student" && (
-                <th className="pl- text-center">Delete</th>
-              )}
-              {role === "Admin" && (
-                <th className="!pl- text-center">Approve</th>
-              )}
-              {role === "Instructor" && (
-                <th className="!pl- text-center">Feedback</th>
-              )}
-              {role === "Admin" && <th className="!pl- text-center">Deny</th>}
-              {role === "Instructor" && (
-                <th className="!pl- text-center">Update</th>
-              )}
-              {role === "Admin" && (
-                <th className="!pl- text-center">Feedback</th>
-              )}
-            </tr>
-          </thead>
-          <tbody>
-            {classes.map((classData, index) => (
-              <ClassList
-                key={classData._id}
-                openModal={openModal}
-                reload={reload}
-                setReload={setReload}
-                classData={classData}
-                index={index}
-              ></ClassList>
-            ))}
-          </tbody>
-          <tbody className={`divide-y ${role !== "Instructor" && "hidden"}`}>
-            {/*{
+    <>
+      {role === "admin" && (
+        <div>
+          <Helmet>
+            <title>CorePower Yoga || Dashboard||ManageClasses</title>
+          </Helmet>
+          <div className=" overflow-x-scrol">
+            <table className="table">
+              {/* head */}
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Picture</th>
+                  <th>Class Name</th>
+                  {role !== "Instructor" && (
+                    <th className="pl- text-center">Instructor</th>
+                  )}
+                  {role === "Instructor" && (
+                    <th className="pl- text-center">Price</th>
+                  )}
+                  <th>Instructor Email</th>
+                  {/*{role === "admin" && <th>Available Seats</th>}*/}
+                  {role === "admin" && <th className=" text-center">Price</th>}
+                  <th>Seats</th>
+                  {role === "Instructor" ||
+                    (role === "admin" && (
+                      <th className=" text-center">Enrolled</th>
+                    ))}
+                  {(role === "admin" || role === "Instructor") && (
+                    <th className="pl- text-center">Status</th>
+                  )}
+                  {role === "Student" && <th className="pl-16">Price</th>}
+                  {role === "Student" && (
+                    <th className="pl- text-center">Pay</th>
+                  )}
+                  {role === "Student" && (
+                    <th className="pl- text-center">Delete</th>
+                  )}
+                  {role === "admin" && (
+                    <th className="!pl- text-center">Approve</th>
+                  )}
+                  {role === "Instructor" && (
+                    <th className="!pl- text-center">Feedback</th>
+                  )}
+                  {role === "admin" && (
+                    <th className="!pl- text-center">Deny</th>
+                  )}
+                  {role === "Instructor" && (
+                    <th className="!pl- text-center">Update</th>
+                  )}
+                  {role === "admin" && (
+                    <th className="!pl- text-center">Feedback</th>
+                  )}
+                </tr>
+              </thead>
+              <tbody>
+                {classes.map((classData, index) => (
+                  <ClassList
+                    key={classData._id}
+                    reload={reload}
+                    setReload={setReload}
+                    classData={classData}
+                    index={index}
+                  ></ClassList>
+                ))}
+              </tbody>
+              <tbody
+                className={`divide-y ${role !== "Instructor" && "hidden"}`}
+              >
+                {/*{
     classes.map((classData, index) => <InstructorClassList key={classData._id} openModal={openModal} openClassUpdate={openClassUpdate} reload={reload} setReload={setReload} classData={classData} index={index} ></InstructorClassList>)
 }*/}
-          </tbody>
-          {role === "Student" && (
-            <tbody className={`divide-y ${role !== "Student" && "hidden"}`}>
-              {/*{
+              </tbody>
+              {role === "Student" && (
+                <tbody className={`divide-y ${role !== "Student" && "hidden"}`}>
+                  {/*{
     classes.map((classData, index) => <MySelectedClass key={classData._id} handleDelete={handleDelete} classData={classData} index={index} />)
 }*/}
-            </tbody>
-          )}
-        </table>
-      </div>
-    </div>
+                </tbody>
+              )}
+            </table>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

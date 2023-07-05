@@ -8,6 +8,7 @@ const Students = ({student, refetch}) => {
     classImage,
     enrolled,
     availableSeats,
+    seats,
     price,
     description,
   } = student;
@@ -22,12 +23,12 @@ const Students = ({student, refetch}) => {
       </figure>
       <div className="card-body">
         <div className="justify-end">
-          <button>Select Course</button>
+          <button className="btn btn-outline">Select Course</button>
         </div>
         <h2 className="card-title">Instructor Name:{instructorName}</h2>
         <p>Enroll:{enrolled}</p>
         <p>Price:{price}</p>
-        <p>Seats:{availableSeats}</p>
+        <p>Seats:{seats}</p>
         <p>{description}</p>
       </div>
     </div>

@@ -1,18 +1,23 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {useQuery} from "@tanstack/react-query";
 import {Helmet} from "react-helmet-async";
 import {toast} from "react-hot-toast";
 import {FaTrashAlt, FaUserShield} from "react-icons/fa";
+import useAuth from "../../../hooks/useAuth";
 //import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const ManageUsers = () => {
   //const [axiosSecure] = useAxiosSecure();
-  const {data: users = [], refetch} = useQuery(["users"], async () => {
-    const res = await axiosSecure.get("/users");
-    return res.data;
-  });
-
-  const handleMakeAdmin = (user) => {
+  const {user} = useAuth();
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_API_URL}/users`)
+      .then((res) => res.json())
+      .then((data) => {
+        setUsers(data);
+      });
+  }, []);
+  const handleMakeAdmin = () => {
     fetch(`${import.meta.env.VITE_API_URL}/users/admin/${user._id}`, {
       method: "PATCH",
     })
@@ -25,7 +30,7 @@ const ManageUsers = () => {
         }
       });
   };
-  const handleMakeInstructor = (user) => {
+  const handleMakeInstructor = () => {
     fetch(`${import.meta.env.VITE_API_URL}/users/instructor/${user._id}`, {
       method: "PATCH",
     })
@@ -70,7 +75,7 @@ const ManageUsers = () => {
                     "admin"
                   ) : (
                     <button
-                      onClick={() => handleMakeAdmin(user)}
+                      onClick={handleMakeAdmin}
                       className="btn btn-ghost bg-orange-400 text-white rounded-full btn-lg"
                     >
                       <FaUserShield />
@@ -82,7 +87,7 @@ const ManageUsers = () => {
                     "instructor"
                   ) : (
                     <button
-                      onClick={() => handleMakeInstructor(user)}
+                      onClick={handleMakeInstructor}
                       className="btn btn-ghost bg-orange-400 text-white rounded-full btn-lg"
                     >
                       <FaUserShield />
@@ -91,7 +96,7 @@ const ManageUsers = () => {
                 </td>
                 <td>
                   <button
-                    onClick={() => handleDelete(user)}
+                    onClick={handleDelete}
                     className="btn btn-ghost bg-red-400 text-white rounded-full btn-lg"
                   >
                     <FaTrashAlt />

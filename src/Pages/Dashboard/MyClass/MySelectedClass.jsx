@@ -5,11 +5,8 @@ import {FaTrashAlt} from "react-icons/fa";
 import Swal from "sweetalert2";
 
 const MySelectedClass = () => {
-  const [eClass] = useClass();
-  const totalEnrolled = eClass.reduce(
-    (sum, enrolledClass) => enrolledClass.price + sum,
-    0
-  );
+  const classes = useClass();
+  console.log(classes);
 
   const handleDelete = (itemName) => {
     Swal.fire({
@@ -42,7 +39,7 @@ const MySelectedClass = () => {
       </Helmet>
       <div className="flex justify-evenly">
         <h1>Selected Class</h1>
-        <h1>{totalEnrolled}</h1>
+
         <button className="btn btn-warning">Pay</button>
       </div>
       <div className="overflow-x-auto w-full">
@@ -58,31 +55,32 @@ const MySelectedClass = () => {
             </tr>
           </thead>
           <tbody>
-            {eClass.map((itemName, index) => (
-              <tr key={itemName._id}>
-                <td>{index + 1}</td>
-                <td>
-                  <div className="avatar">
-                    <div className="mask mask-squircle w-12 h-12">
-                      <img
-                        src={itemName.classImage}
-                        alt="Avatar Tailwind CSS Component"
-                      />
+            {classes.length > 0 &&
+              classes.map((itemName, index) => (
+                <tr key={itemName._id}>
+                  <td>{index + 1}</td>
+                  <td>
+                    <div className="avatar">
+                      <div className="mask mask-squircle w-12 h-12">
+                        <img
+                          src={itemName.classImage}
+                          alt="Avatar Tailwind CSS Component"
+                        />
+                      </div>
                     </div>
-                  </div>
-                </td>
-                <td>{itemName.className}</td>
-                <td>{itemName.price}</td>
-                <td>
-                  <button
-                    onClick={() => handleDelete(itemName)}
-                    className="btn btn-ghost bg-red-400 text-white rounded-full btn-lg"
-                  >
-                    <FaTrashAlt />
-                  </button>
-                </td>
-              </tr>
-            ))}
+                  </td>
+                  <td>{itemName.className}</td>
+                  <td>{itemName.price}</td>
+                  <td>
+                    <button
+                      onClick={() => handleDelete(itemName)}
+                      className="btn btn-ghost bg-red-400 text-white rounded-full btn-lg"
+                    >
+                      <FaTrashAlt />
+                    </button>
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import useAuth from "../../../hooks/useAuth";
 import {useNavigate} from "react-router-dom";
+import {toast} from "react-hot-toast";
 
 const AddClass = () => {
   const {user} = useAuth();
@@ -47,14 +48,16 @@ const AddClass = () => {
       email,
     };
 
-    fetch(`${import.meta.env.VITE_API_URL}/postClass`, {
+    fetch(`${import.meta.env.VITE_API_URL}/postClasses`, {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
       .then((result) => {
+        console.log(result);
         navigate("/classes");
+        toast("Class Posted Successfully");
       })
       .catch((error) => {
         console.log("error occured", error.message);
