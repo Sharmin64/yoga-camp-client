@@ -46,7 +46,7 @@ const DashBoard = () => {
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content flex flex-col items-center justify-center">
+      <div className="drawer-content flex flex-col items-center justify-center bg-indigo-100">
         <Outlet />
         <label
           htmlFor="my-drawer-2"
@@ -55,64 +55,9 @@ const DashBoard = () => {
           Open drawer
         </label>
       </div>
-      <div className="drawer-side bg-indigo-200">
+      <div className="drawer-side bg-indigo-400">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 h-full">
-          {/*{isAdmin && isInstructors ? (
-            <>
-              <li>
-                <Link to="/dashboard/home">
-                  <GrUserAdmin />
-                  Admin Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/dashboard/manageclasses">
-                  <FaRegEdit />
-                  Manage Class
-                </Link>
-              </li>
-              <li>
-                <Link to="/dashboard/manageusers">
-                  <GrUser />
-                  Manage users
-                </Link>
-              </li>
-              <li>
-                <Link to="/dashboard/addclass">
-                  <GrUser />
-                  Add A Class
-                </Link>
-              </li>
-            </>
-          ) : (
-            <>
-              <li>
-                <Link to="/">
-                  <FaHome />
-                  Student Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/dashboard/myselectedclass">
-                  <FaUniversalAccess />
-                  My Selected Class
-                </Link>
-              </li>
-              <li>
-                <Link to="/dashboard/myenrolledclass">
-                  <FaUniversalAccess />
-                  My Enrolled Class
-                </Link>
-              </li>
-              <li>
-                <Link to="/dashboard/paymenthistory">
-                  <FaWallet /> Payment History
-                </Link>
-              </li>
-            </>
-          )}*/}
-
           <li>
             <NavLink
               to="/dashboard/manageclasses"
@@ -128,7 +73,6 @@ const DashBoard = () => {
               </span>
             </NavLink>
           </li>
-
           <li>
             <NavLink
               to="/dashboard/myclasses"
@@ -142,61 +86,51 @@ const DashBoard = () => {
               <span className="flex-1 ml-3 whitespace-nowrap ">My Classes</span>
             </NavLink>
           </li>
-
-          {role === "student" && (
-            <li>
-              <NavLink
-                to="/dashboard/myselectedclass"
-                className={({isActive}) =>
-                  isActive
-                    ? "flex items-center p-2 text-slate-800 rounded-lg dark:text-gray-50 hover:bg-gray-200 dark:hover:bg-gray-700"
-                    : "flex items-center p-2 text-black rounded-lg dark:text-gray-400 hover:bg-slate-700 dark:hover:bg-gray-700"
-                }
-              >
-                <BsUiChecks className="w-6 h-6 transition duration-75" />
-                <span className="flex-1 ml-3 whitespace-nowrap ">
-                  My Selected Classes
-                </span>
-              </NavLink>
-            </li>
-          )}
-
-          {role === "student" && (
-            <li>
-              <NavLink
-                to="/dashboard/myenrolledclass"
-                className={({isActive}) =>
-                  isActive
-                    ? "flex items-center p-2 text-slate-800 rounded-lg dark:text-gray-50 hover:bg-gray-200 dark:hover:bg-gray-700"
-                    : "flex items-center p-2 text-black rounded-lg dark:text-gray-400 hover:bg-slate-700 dark:hover:bg-gray-700"
-                }
-              >
-                <BsUiChecksGrid className="w-6 h-6 transition duration-75" />
-                <span className="flex-1 ml-3 whitespace-nowrap ">
-                  My Enrolled Classes
-                </span>
-              </NavLink>
-            </li>
-          )}
-
-          {role === "student" && (
-            <li>
-              <NavLink
-                to="/dashboard/paymenthistory"
-                className={({isActive}) =>
-                  isActive
-                    ? "flex items-center p-2 text-slate-800 rounded-lg dark:text-gray-50 hover:bg-gray-200 dark:hover:bg-gray-700"
-                    : "flex items-center p-2 text-black rounded-lg dark:text-gray-400 hover:bg-slate-700 dark:hover:bg-gray-700"
-                }
-              >
-                <MdPayments className="w-6 h-6 transition duration-75" />
-                <span className="flex-1 ml-3 whitespace-nowrap ">
-                  Payment History
-                </span>
-              </NavLink>
-            </li>
-          )}
-
+          <li>
+            <NavLink
+              to="/dashboard/myselectedclass"
+              className={({isActive}) =>
+                isActive
+                  ? "flex items-center p-2 text-slate-800 rounded-lg dark:text-gray-50 hover:bg-gray-200 dark:hover:bg-gray-700"
+                  : "flex items-center p-2 text-black rounded-lg dark:text-gray-400 hover:bg-slate-700 dark:hover:bg-gray-700"
+              }
+            >
+              <BsUiChecks className="w-6 h-6 transition duration-75" />
+              <span className="flex-1 ml-3 whitespace-nowrap ">
+                My Selected Classes
+              </span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/dashboard/myenrolledclass"
+              className={({isActive}) =>
+                isActive
+                  ? "flex items-center p-2 text-slate-800 rounded-lg dark:text-gray-50 hover:bg-gray-200 dark:hover:bg-gray-700"
+                  : "flex items-center p-2 text-black rounded-lg dark:text-gray-400 hover:bg-slate-700 dark:hover:bg-gray-700"
+              }
+            >
+              <BsUiChecksGrid className="w-6 h-6 transition duration-75" />
+              <span className="flex-1 ml-3 whitespace-nowrap ">
+                My Enrolled Classes
+              </span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/dashboard/paymenthistory"
+              className={({isActive}) =>
+                isActive
+                  ? "flex items-center p-2 text-slate-800 rounded-lg dark:text-gray-50 hover:bg-gray-200 dark:hover:bg-gray-700"
+                  : "flex items-center p-2 text-black rounded-lg dark:text-gray-400 hover:bg-slate-700 dark:hover:bg-gray-700"
+              }
+            >
+              <MdPayments className="w-6 h-6 transition duration-75" />
+              <span className="flex-1 ml-3 whitespace-nowrap ">
+                Payment History
+              </span>
+            </NavLink>
+          </li>
           <li>
             <NavLink
               to="/dashboard/addclass"
@@ -212,7 +146,6 @@ const DashBoard = () => {
               </span>
             </NavLink>
           </li>
-
           <li>
             <NavLink
               to="/dashboard/manageusers"
@@ -228,6 +161,131 @@ const DashBoard = () => {
               </span>
             </NavLink>
           </li>
+          {/*{role === "admin" && (
+            <li>
+              <NavLink
+                to="/dashboard/manageclasses"
+                className={({isActive}) =>
+                  isActive
+                    ? "flex items-center p-2 text-slate-800 rounded-lg dark:text-gray-50 hover:bg-gray-200 dark:hover:bg-gray-700"
+                    : "flex items-center p-2 text-black rounded-lg dark:text-gray-400 hover:bg-slate-700 dark:hover:bg-gray-700"
+                }
+              >
+                <FaRegEdit className="w-6 h-6 transition duration-75" />
+                <span className="flex-1 ml-3 whitespace-nowrap ">
+                  Manage Classes
+                </span>
+              </NavLink>
+            </li>
+          )}*/}
+
+          {/*{role === "intructor" && (
+            <li>
+              <NavLink
+                to="/dashboard/myclasses"
+                className={({isActive}) =>
+                  isActive
+                    ? "flex items-center p-2 text-slate-800 rounded-lg dark:text-gray-50 hover:bg-gray-200 dark:hover:bg-gray-700"
+                    : "flex items-center p-2 text-black rounded-lg dark:text-gray-400 hover:bg-slate-700 dark:hover:bg-gray-700"
+                }
+              >
+                <FaRegEdit className="w-6 h-6 transition duration-75" />
+                <span className="flex-1 ml-3 whitespace-nowrap ">
+                  My Classes
+                </span>
+              </NavLink>
+            </li>
+          )}*/}
+
+          {/*{role === "student" && (
+            <li>
+              <NavLink
+                to="/dashboard/myselectedclass"
+                className={({isActive}) =>
+                  isActive
+                    ? "flex items-center p-2 text-slate-800 rounded-lg dark:text-gray-50 hover:bg-gray-200 dark:hover:bg-gray-700"
+                    : "flex items-center p-2 text-black rounded-lg dark:text-gray-400 hover:bg-slate-700 dark:hover:bg-gray-700"
+                }
+              >
+                <BsUiChecks className="w-6 h-6 transition duration-75" />
+                <span className="flex-1 ml-3 whitespace-nowrap ">
+                  My Selected Classes
+                </span>
+              </NavLink>
+            </li>
+          )}*/}
+
+          {/*{role === "student" && (
+            <li>
+              <NavLink
+                to="/dashboard/myenrolledclass"
+                className={({isActive}) =>
+                  isActive
+                    ? "flex items-center p-2 text-slate-800 rounded-lg dark:text-gray-50 hover:bg-gray-200 dark:hover:bg-gray-700"
+                    : "flex items-center p-2 text-black rounded-lg dark:text-gray-400 hover:bg-slate-700 dark:hover:bg-gray-700"
+                }
+              >
+                <BsUiChecksGrid className="w-6 h-6 transition duration-75" />
+                <span className="flex-1 ml-3 whitespace-nowrap ">
+                  My Enrolled Classes
+                </span>
+              </NavLink>
+            </li>
+          )}*/}
+
+          {/*{role === "student" && (
+            <li>
+              <NavLink
+                to="/dashboard/paymenthistory"
+                className={({isActive}) =>
+                  isActive
+                    ? "flex items-center p-2 text-slate-800 rounded-lg dark:text-gray-50 hover:bg-gray-200 dark:hover:bg-gray-700"
+                    : "flex items-center p-2 text-black rounded-lg dark:text-gray-400 hover:bg-slate-700 dark:hover:bg-gray-700"
+                }
+              >
+                <MdPayments className="w-6 h-6 transition duration-75" />
+                <span className="flex-1 ml-3 whitespace-nowrap ">
+                  Payment History
+                </span>
+              </NavLink>
+            </li>
+          )}*/}
+
+          {/*{role === "instructor" && (
+            <li>
+              <NavLink
+                to="/dashboard/addclass"
+                className={({isActive}) =>
+                  isActive
+                    ? "flex items-center p-2 text-slate-800 rounded-lg dark:text-gray-50 hover:bg-gray-200 dark:hover:bg-gray-700"
+                    : "flex items-center p-2 text-black rounded-lg dark:text-gray-400 hover:bg-slate-700 dark:hover:bg-gray-700"
+                }
+              >
+                <BiAddToQueue className="w-6 h-6 transition duration-75" />
+                <span className="flex-1 ml-3 whitespace-nowrap ">
+                  Add a Class
+                </span>
+              </NavLink>
+            </li>
+          )}*/}
+
+          {/*{role === "admin" && (
+            <li>
+              <NavLink
+                to="/dashboard/manageusers"
+                className={({isActive}) =>
+                  isActive
+                    ? "flex items-center p-2 text-slate-800 rounded-lg dark:text-gray-50 hover:bg-gray-200 dark:hover:bg-gray-700"
+                    : "flex items-center p-2 text-black rounded-lg dark:text-gray-400 hover:bg-slate-700 dark:hover:bg-gray-700"
+                }
+              >
+                <FaUsers className="w-6 h-6 transition duration-75 " />
+                <span className="flex-1 ml-3 whitespace-nowrap ">
+                  Manage Users
+                </span>
+              </NavLink>
+            </li>
+          )}*/}
 
           <div className="divider"></div>
           <li>

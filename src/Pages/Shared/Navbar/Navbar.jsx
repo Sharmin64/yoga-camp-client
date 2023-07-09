@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {useContext} from "react";
 import {Link} from "react-router-dom";
 import {AuthContext} from "../../../Providers/AuthProvider";
+import icon from "../../../assets/icon/yoga_icon.png";
 
 const Navbar = () => {
   const {user, logOut} = useContext(AuthContext);
@@ -25,26 +26,13 @@ const Navbar = () => {
       <li>
         <Link to="/classes">Classes</Link>
       </li>
-
-      {user ? (
-        <>
-          <span className="inline-block">{user?.displayName}</span>
-
-          <button onClick={handleLogOut} className="btn btn-ghost">
-            LogOut
-          </button>
-        </>
-      ) : (
-        <>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-        </>
-      )}
+      <li>
+        <Link to="/signup">SignUp</Link>
+      </li>
     </>
   );
   return (
-    <div className="navbar fixed z-10 max-w-screen-xl mx-auto bg-opacity-30  bg-black-100 text-blue-700">
+    <div className="navbar fixed z-10 max-w-screen-xl mx-auto bg-opacity-50  bg-indigo-600 text-[#dfd3c5] top-0">
       <div className="navbar-start">
         <div className="dropdown ">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -71,7 +59,8 @@ const Navbar = () => {
           </ul>
         </div>
         <h2 className="btn btn-ghost normal-case block text-left text-xl">
-          <strong className="text-3xl"> CorePower Yoga </strong>
+          <strong className="text-3xl"> CorePowerYoga </strong>
+          <img src={icon} className="inline-flex" alt="" />
         </h2>
       </div>
       <div className="navbar-center hidden lg:flex">

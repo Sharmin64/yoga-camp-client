@@ -1,14 +1,19 @@
 import React from "react";
 
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+//import "react-responsive-carousel/lib/styles/carousel.min.css";
 //import "./Banner.css";
-
-import banA from "../../../assets/images/banA.jpg";
-import banB from "../../../assets/images/banB.jpg";
-import banC from "../../../assets/images/banC.jpg";
-import banD from "../../../assets/images/banD.jpg";
-import {Carousel} from "react-responsive-carousel";
+import bannerF from "../../../assets/banner/bannerF.avif";
+import bannerB from "../../../assets/banner/bannerB.avif";
+import bannerC from "../../../assets/banner/bannerC.avif";
+import bannerD from "../../../assets/banner/bannerD.jpg";
+import manO from "../../../assets/banner/manO.jpg";
+//import {Carousel} from "react-responsive-carousel";
 //import {Typewriter} from "react-simple-typewriter";
+//import AwesomeSlider from "react-awesome-slider";
+//import "react-awesome-slider/dist/styles.css";
+import {Swiper, SwiperSlide} from "swiper/react";
+import "swiper/css/bundle";
+import {Autoplay, Pagination} from "swiper/modules";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -33,94 +38,148 @@ const Banner = () => {
     anchorPlacement: "top-bottom",
   });
   return (
-    <Carousel>
-      <div className="relative">
-        <img className="bg-opacity-30 grayscale-0" src={banA} />
-        <div
-          data-aos="fade-up"
-          data-aos-offset="200"
-          data-aos-delay="50"
-          data-aos-duration="2000"
-          data-aos-easing="ease-in-out"
-          data-aos-mirror="true"
-          data-aos-anchor-placement="top-center"
-          className="absolute ml-14 mb-0 -mt-96 text-start "
-        >
-          <p className="text-white font-bold text-3xl">
-            Kids CorePower Yoga Activity <br />
-            Early Bird Offer
-          </p>
-          <button className="btn btn-outline btn-secondary justify-start">
-            Learn More
-          </button>
+    <Swiper
+      spaceBetween={50}
+      centeredSlides={true}
+      //  slidesPerView={6}
+      loop
+      autoplay={{
+        delay: 3000,
+        disableOnInteraction: false,
+      }}
+      modules={[Autoplay, Pagination]}
+      className="mySwiper mx-auto"
+    >
+      <SwiperSlide>
+        <img
+          src={bannerF}
+          alt="Card Image"
+          className="w-full h-auto lg:h-[700px] object-cover lg:rounded-md"
+        />
+        <div>
+          <h2 className="text-white font-bold text-4xl w-1/3 absolute">
+            Yoga Activity Early Bird Offer
+          </h2>
         </div>
-      </div>
-      <div className="relative">
-        <img src={banB} />
-        <div
-          data-aos="fade-up"
-          data-aos-offset="200"
-          data-aos-delay="50"
-          data-aos-duration="2000"
-          data-aos-easing="ease-in-out"
-          data-aos-mirror="true"
-          data-aos-anchor-placement="top-center"
-          className="absolute ml-14 mb-0 -mt-96 text-start "
-        >
-          <p className="text-white font-bold text-3xl">
-            Kids CorePower Yoga Activity
-            <br />
-            Heal Yourself from here
-          </p>
-          <button className="btn btn-outline btn-secondary justify-start">
-            Learn More
-          </button>
-        </div>
-      </div>
-      <div className="relative">
-        <img src={banC} />
-        <div
-          data-aos="fade-up"
-          data-aos-offset="200"
-          data-aos-delay="50"
-          data-aos-duration="2000"
-          data-aos-easing="ease-in-out"
-          data-aos-mirror="true"
-          data-aos-anchor-placement="top-center"
-          className="absolute ml-14 mb-0 -mt-96 text-start "
-        >
-          <p className="text-white font-bold text-3xl">
-            Kids CorePower Yoga Activity <br />a way to improve inner strength
-            and confidence
-          </p>
-          <button className="btn btn-outline btn-secondary justify-start">
-            Learn More
-          </button>
-        </div>
-      </div>
-      <div className="relative">
-        <img src={banD} />
-        <div
-          data-aos="fade-up"
-          data-aos-offset="200"
-          data-aos-delay="50"
-          data-aos-duration="2000"
-          data-aos-easing="ease-in-out"
-          data-aos-mirror="true"
-          data-aos-anchor-placement="top-center"
-          className="absolute ml-14 mb-0 -mt-96 text-start bg-opacity-20"
-        >
-          <p className="text-white font-bold text-3xl">
-            Kids CorePower Yoga Activity
-            <br />
-            Be alive | Be fit | Be relaxed
-          </p>
-          <button className="btn btn-outline btn-secondary justify-start">
-            Learn More
-          </button>
-        </div>
-      </div>
-    </Carousel>
+      </SwiperSlide>
+      <SwiperSlide>
+        <img
+          src={bannerB}
+          alt="Card Image"
+          className="w-full h-auto lg:h-[700px] object-cover lg:rounded-md"
+        />
+      </SwiperSlide>
+      <SwiperSlide>
+        <img
+          src={bannerC}
+          alt="Card Image"
+          className="w-full h-auto lg:h-[700px] object-cover lg:rounded-md"
+        />
+      </SwiperSlide>
+      <SwiperSlide>
+        <img
+          src={bannerD}
+          alt="Card Image"
+          className="w-full h-auto lg:h-[700px] object-cover lg:rounded-md"
+        />
+      </SwiperSlide>
+      <SwiperSlide>
+        <img
+          src={manO}
+          alt="Card Image"
+          className="w-full h-auto lg:h-[700px] object-cover lg:rounded-md"
+        />
+      </SwiperSlide>
+    </Swiper>
+    //<Carousel>
+    //  <div className="relative h-[700px]">
+    //    <img className="bg-opacity-30 grayscale-0" src={bannerF} />
+    //    <div
+    //      data-aos="fade-up"
+    //      data-aos-delay="200"
+    //      data-aos-duration="2000"
+    //      data-aos-easing="ease-in-out"
+    //      className="absolute ml-14 mb-0 -mt-96 text-start "
+    //    >
+
+    //      <button className="btn btn-outline btn-secondary justify-start">
+    //        Learn More
+    //      </button>
+    //    </div>
+    //  </div>
+    //  <div className="relative h-[700px]">
+    //    <img src={bannerB} />
+    //    <div
+    //      data-aos="fade-up"
+    //      data-aos-delay="200"
+    //      data-aos-duration="2000"
+    //      data-aos-easing="ease-in-out"
+    //      className="absolute ml-14 mb-0 -mt-96  text-start "
+    //    >
+    //      <h2 className="text-white font-bold text-4xl w-1/3">
+    //        Yoga Activity Heal Yourself from here
+    //      </h2>
+
+    //      <button className="btn btn-outline btn-secondary justify-start">
+    //        Learn More
+    //      </button>
+    //    </div>
+    //  </div>
+    //  <div className="relative h-[700px]">
+    //    <img src={bannerC} />
+    //    <div
+    //      data-aos="fade-up"
+    //      data-aos-delay="200"
+    //      data-aos-duration="2000"
+    //      data-aos-easing="ease-in-out"
+    //      className="absolute ml-14 mb-0 -mt-96 text-start "
+    //    >
+    //      <h2 className="text-white font-bold text-4xl w-1/3">
+    //        Yoga Activity a way to improve inner strength and confidence
+    //      </h2>
+
+    //      <button className="btn btn-outline btn-secondary justify-start">
+    //        Learn More
+    //      </button>
+    //    </div>
+    //  </div>
+    //  <div className="relative h-[700px]">
+    //    <img src={bannerD} />
+    //    <div
+    //      data-aos="fade-up"
+    //      data-aos-delay="200"
+    //      data-aos-duration="2000"
+    //      data-aos-easing="ease-in-out"
+    //      className="absolute ml-14 mb-0 -mt-96 text-start "
+    //    >
+    //      <h2 className="text-white font-bold text-4xl w-1/3">
+    //        Yoga Activity a way to improve inner strength and confidence
+    //      </h2>
+
+    //      <button className="btn btn-outline btn-secondary justify-start">
+    //        Learn More
+    //      </button>
+    //    </div>
+    //  </div>
+    //  <div className="relative h-[700px]">
+    //    <img src={manO} />
+    //    <div
+    //      data-aos="fade-up"
+    //      data-aos-delay="200"
+    //      data-aos-duration="2000"
+    //      data-aos-easing="ease-in-out"
+    //      className="absolute ml-14 mb-0 -mt-96 text-start bg-opacity-20"
+    //    >
+    //      <h2 className="text-white font-bold text-4xl w-1/3">
+    //        Yoga Activity Be alive | Be fit | Be relaxed
+    //      </h2>
+
+    //      <button className="btn btn-outline btn-secondary justify-start">
+    //        Learn More
+    //      </button>
+    //    </div>
+    //  </div>
+    //</Carousel>
   );
 };
 

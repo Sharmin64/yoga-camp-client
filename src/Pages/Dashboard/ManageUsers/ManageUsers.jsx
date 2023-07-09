@@ -4,12 +4,14 @@ import {Helmet} from "react-helmet-async";
 import {toast} from "react-hot-toast";
 import {FaTrashAlt, FaUserShield} from "react-icons/fa";
 import useAuth from "../../../hooks/useAuth";
+//import useRole from "../../../hooks/useRole";
 //import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const ManageUsers = () => {
   //const [axiosSecure] = useAxiosSecure();
   const {user} = useAuth();
   const [users, setUsers] = useState([]);
+  //const role = useRole();
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}/users`)
       .then((res) => res.json())
@@ -59,8 +61,9 @@ const ManageUsers = () => {
               <th>#</th>
               <th>Name</th>
               <th>Email</th>
-              <th> Admin Role</th>
-              <th> Instructor Role</th>
+              <th> Role</th>
+              <th> Make Admin </th>
+              <th>Make Instructor </th>
               <th>Action</th>
             </tr>
           </thead>
@@ -70,6 +73,7 @@ const ManageUsers = () => {
                 <td>{index + 1}</td>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
+                {/*<td>{role}</td>*/}
                 <td>
                   {user.role === "admin" ? (
                     "admin"

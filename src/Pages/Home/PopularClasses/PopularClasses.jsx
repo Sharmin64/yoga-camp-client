@@ -1,13 +1,13 @@
 import React from "react";
 import {useState} from "react";
 import {useEffect} from "react";
-import Class from "./Class";
+import SingleClass from "./SingleClass";
 
 const PopularClasses = () => {
   const [classes, setClasses] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5003/classes`)
+    fetch(`${import.meta.env.VITE_API_URL}/classes`)
       .then((res) => res.json())
       .then((data) => setClasses(data));
   }, []);
@@ -18,7 +18,7 @@ const PopularClasses = () => {
       </h1>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 ">
         {classes.map((classItem) => (
-          <Class key={classItem._id} classItem={classItem}></Class>
+          <SingleClass key={classItem._id} classItem={classItem}></SingleClass>
         ))}
       </div>
     </>

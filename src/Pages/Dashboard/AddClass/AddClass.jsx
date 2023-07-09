@@ -56,8 +56,8 @@ const AddClass = () => {
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
-        navigate("/classes");
         toast("Class Posted Successfully");
+        navigate("/classes");
       })
       .catch((error) => {
         console.log("error occured", error.message);

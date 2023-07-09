@@ -2,7 +2,7 @@ import React from "react";
 import offerImg from "../../../assets/images/offerA.jpeg";
 import offerB from "../../../assets/images/offerD.png";
 import offerC from "../../../assets/images/offerE.png";
-
+import {motion} from "framer-motion";
 const ExtraSection = () => {
   return (
     <>
@@ -11,7 +11,16 @@ const ExtraSection = () => {
           |What We Offer|
         </h3>
       </div>
-      <div className="grid lg:grid-cols-3 sm:grid-cols-1 gap-4 sm:w-full sm:mx-auto lg:mx-auto">
+      <motion.div
+        drag
+        dragConstraints={{
+          top: -50,
+          left: -50,
+          right: 50,
+          bottom: 50,
+        }}
+        className="grid lg:grid-cols-3 sm:grid-cols-1 gap-4 sm:w-full sm:mx-auto lg:mx-auto"
+      >
         <div className="card card-compact w-96 bg-base-100 shadow-xl transition duration-150 ease-out hover:ease-in">
           <figure>
             <img
@@ -111,7 +120,7 @@ const ExtraSection = () => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };
