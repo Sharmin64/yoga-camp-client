@@ -1,4 +1,5 @@
 import React from "react";
+import {toast} from "react-hot-toast";
 
 const SingleClass = ({classItem}) => {
   const {_id, className, instructorName, classImage, enrolled} = classItem;
@@ -16,7 +17,7 @@ const SingleClass = ({classItem}) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          alert("ruk jaw");
+          toast("Class Selected");
         }
       });
   };

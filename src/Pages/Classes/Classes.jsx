@@ -7,7 +7,7 @@ import useYogaClass from "../../hooks/useYogaClass";
 
 const Classes = () => {
   const [classes, loading, refetch] = useYogaClass();
-  console.log(classes);
+  //console.log(classes);
 
   const bgStyle = {
     backgroundImage: `url('https://img.freepik.com/free-photo/yoga-vrikshasana-pose-tropical-location_1163-3366.jpg?size=626&ext=jpg&ga=GA1.2.947883390.1663212112&semt=ais')`,

@@ -3,6 +3,7 @@ import {Helmet} from "react-helmet-async";
 import useClass from "../../../hooks/useClass";
 import {FaTrashAlt} from "react-icons/fa";
 import Swal from "sweetalert2";
+import {Link} from "react-router-dom";
 
 const MySelectedClass = () => {
   const classes = useClass();
@@ -25,7 +26,6 @@ const MySelectedClass = () => {
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
-              refetch();
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
             }
           });
@@ -39,8 +39,9 @@ const MySelectedClass = () => {
       </Helmet>
       <div className="flex justify-evenly">
         <h1>Selected Class</h1>
-
-        <button className="btn btn-warning">Pay</button>
+        <Link to="/dashboard/paymenthistory">
+          <button className="btn btn-warning">Pay</button>
+        </Link>
       </div>
       <div className="overflow-x-auto w-full">
         <table className="table">

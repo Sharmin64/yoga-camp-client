@@ -46,7 +46,7 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: "dashboard",
+    path: "/dashboard",
     element: (
       //<PrivateRoute>
       <DashBoard />
@@ -54,32 +54,32 @@ export const router = createBrowserRouter([
     ),
     children: [
       {
-        path: "myselectedclass",
+        path: "/dashboard/myselectedclass",
         element: <MySelectedClass />,
       },
 
       {
-        path: "manageusers",
+        path: "/dashboard/manageusers",
         element: <ManageUsers />,
       },
       {
-        path: "manageclasses",
+        path: "/dashboard/manageclasses",
         element: <ManageClasses />,
       },
       {
-        path: "myenrolledclass",
+        path: "/dashboard/myenrolledclass",
         element: <MyEnrolledClass />,
       },
       {
-        path: "paymenthistory",
+        path: "/dashboard/paymenthistory",
         element: <PaymentHistory />,
       },
       {
-        path: "addclass",
+        path: "/dashboard/addclass",
         element: <AddClass />,
       },
       {
-        path: "myclasses",
+        path: "/dashboard/myclasses",
         element: <MyClasses />,
       },
     ],

@@ -1,6 +1,7 @@
 import {Navigate, useLocation} from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import useAdmin from "../hooks/useAdmin";
+import {toast} from "react-hot-toast";
 
 const AdminRoute = ({children}) => {
   const {user, loading} = useAuth();
@@ -11,8 +12,10 @@ const AdminRoute = ({children}) => {
     return <progress className="progress w-56"></progress>;
   }
 
-  if (user && isAdmin) {
+  if (user && isAdmin === "Admin") {
     return children;
+  } else {
+    toast("you are not an Admin");
   }
   return <Navigate to="/" state={{from: location}} replace></Navigate>;
 };

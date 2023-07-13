@@ -8,13 +8,25 @@ import useAuth from "../../../hooks/useAuth";
 const MyClasses = () => {
   const {user} = useAuth();
   const [users, setUsers] = useState([]);
+  const {
+    _id,
+    className,
+    classImage,
+    enrolled,
+    availableSeats,
+    seats,
+    price,
+    description,
+  } = users;
+  console.log(classImage);
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/users`)
+    fetch(`${import.meta.env.VITE_API_URL}/myClasses/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
+        console.log(data);
       });
-  }, []);
+  }, [user?.email]);
   const handleMakeAdmin = () => {
     fetch(`${import.meta.env.VITE_API_URL}/users/admin/${user._id}`, {
       method: "PATCH",
@@ -41,9 +53,9 @@ const MyClasses = () => {
         }
       });
   };
-  const handleDelete = () => {
-    toast("user deleted ");
-  };
+  //const handleUpdate = () => {
+  //  toast("user deleted ");
+  //};
   return (
     <div className="w-full">
       <Helmet>
@@ -55,49 +67,37 @@ const MyClasses = () => {
           <thead className="bg-amber-200 ">
             <tr>
               <th>#</th>
+              <th>Image</th>
               <th>Name</th>
               <th>Email</th>
-              <th> Admin Role</th>
-              <th> Instructor Role</th>
-              <th>Action</th>
+
+              <th> Status</th>
+              <th>Update</th>
             </tr>
           </thead>
           <tbody>
             {users.map((user, index) => (
               <tr key={user._id}>
                 <td>{index + 1}</td>
-                <td>{user.name}</td>
+                <td>
+                  <img
+                    className="w-24 h-24 rounded-xl"
+                    src={user.classImage}
+                    alt=""
+                  />
+                </td>
+                <td>{user.className}</td>
                 <td>{user.email}</td>
-                <td>
-                  {user.role === "admin" ? (
-                    "admin"
-                  ) : (
-                    <button
-                      onClick={handleMakeAdmin}
-                      className="btn btn-ghost bg-orange-400 text-white rounded-full btn-lg"
-                    >
-                      <FaUserShield />
-                    </button>
-                  )}
+                <td className="text-lg font-semibold text-indigo-400">
+                  {user.status}
                 </td>
-                <td>
-                  {user.role === "instructor" ? (
-                    "instructor"
-                  ) : (
-                    <button
-                      onClick={handleMakeInstructor}
-                      className="btn btn-ghost bg-orange-400 text-white rounded-full btn-lg"
-                    >
-                      <FaUserShield />
-                    </button>
-                  )}
-                </td>
+
                 <td>
                   <button
-                    onClick={handleDelete}
-                    className="btn btn-ghost bg-red-400 text-white rounded-full btn-lg"
+                    //onClick={handleUpdate}
+                    className="btn btn-ghost bg-red-400 text-white rounded-md btn-md"
                   >
-                    <FaTrashAlt />
+                    Update
                   </button>
                 </td>
               </tr>
