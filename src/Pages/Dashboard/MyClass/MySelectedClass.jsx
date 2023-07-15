@@ -32,6 +32,23 @@ const MySelectedClass = () => {
       }
     });
   };
+
+  const handlePayment = (itemName) => {
+    fetch(`${import.meta.env.VITE_API_URL}/postClasses/${itemName._id}`, {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        toast("Class Posted Successfully");
+      })
+      .catch((error) => {
+        console.log("error occured", error.message);
+      });
+  };
+
   return (
     <div className="w-full">
       <Helmet>
@@ -72,6 +89,14 @@ const MySelectedClass = () => {
                   </td>
                   <td>{itemName.className}</td>
                   <td>{itemName.price}</td>
+                  <td>
+                    <button
+                      onClick={() => handlePayment(itemName._id)}
+                      className="btn btn-ghost bg-red-400 text-white rounded-full btn-lg"
+                    >
+                      Pay
+                    </button>
+                  </td>
                   <td>
                     <button
                       onClick={() => handleDelete(itemName)}

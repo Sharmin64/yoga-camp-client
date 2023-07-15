@@ -1,26 +1,18 @@
 import React, {useEffect, useState} from "react";
-import {useQuery} from "@tanstack/react-query";
+//import {useQuery} from "@tanstack/react-query";
 import {Helmet} from "react-helmet-async";
 import {toast} from "react-hot-toast";
-import {FaTrashAlt, FaUserShield} from "react-icons/fa";
+//import {FaTrashAlt, FaUserShield} from "react-icons/fa";
 import useAuth from "../../../hooks/useAuth";
 
 const MyClasses = () => {
   const {user} = useAuth();
+  console.log(user?.email);
   const [users, setUsers] = useState([]);
-  const {
-    _id,
-    className,
-    classImage,
-    enrolled,
-    availableSeats,
-    seats,
-    price,
-    description,
-  } = users;
-  console.log(classImage);
+
+  console.log(users);
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/myClasses/${user?.email}`)
+    fetch(`${import.meta.env.VITE_API_URL}/addedClasses/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
@@ -82,11 +74,11 @@ const MyClasses = () => {
                 <td>
                   <img
                     className="w-24 h-24 rounded-xl"
-                    src={user.classImage}
+                    src={user.image}
                     alt=""
                   />
                 </td>
-                <td>{user.className}</td>
+                <td>{user.name}</td>
                 <td>{user.email}</td>
                 <td className="text-lg font-semibold text-indigo-400">
                   {user.status}

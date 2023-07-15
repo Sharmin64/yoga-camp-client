@@ -61,7 +61,12 @@ const Login = () => {
         <div className="hero-content flex-col md:flex-row-reverse">
           <div className="text-center md:w-1/2 lg:w-full lg:object-cover lg:text-left">
             <h1 className="text-5xl font-bold">Login now!</h1>
-            <img src={login} alt="" />
+            <img
+              style={{width: "700px"}}
+              className="rounded-r-full"
+              src={login}
+              alt="loginPage"
+            />
           </div>
           <div className="card md:w-1/2 max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleLogin} className="card-body">

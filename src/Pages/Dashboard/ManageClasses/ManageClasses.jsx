@@ -10,20 +10,20 @@ const ManageClasses = () => {
   const [classes, setClasses] = useState([]);
   const role = useRole();
   const [reload, setReload] = useState(true);
-  //const [role, setRole] = useState("");
+  //const [userRole, setUserRole] = useState("");
   const [feedbackId, setFeedbackId] = useState("");
   const [feedback, setFeedback] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   //const [temp, setTemp] = useState(1);
-  console.log(classes);
+  console.log(role);
   //todo : aro onk kaj ekhane bake ase
 
-  //  useEffect(() => {
-  //    // console.log(user.email);
-  //    fetch(`${import.meta.env.VITE_API_URL}/role/email/${user?.email}`)
-  //        .then(res => res.json())
-  //        .then(data => setRole(data.role))
-  //}, [user?.email])
+  //useEffect(() => {
+  //  // console.log(user.email);
+  //  fetch(`${import.meta.env.VITE_API_URL}/role/email/${user?.email}`)
+  //    .then((res) => res.json())
+  //    .then((data) => setUserRole(data.role));
+  //}, [user?.email]);
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}/selected/${user?.email}`)
@@ -49,12 +49,13 @@ const ManageClasses = () => {
     fetch(`${import.meta.env.VITE_API_URL}/classes`)
       .then((res) => res.json())
       .then((data) => {
-        if (role === "admin") {
-          setClasses(data);
-          console.log(data);
-        }
+        //if (role === "admin") {
+        setClasses(data);
+        console.log(classes);
+        //}
       });
-  }, [user?.email, role, reload]);
+  }, [user?.email, classes]);
+
   return (
     <>
       {role === "admin" && (

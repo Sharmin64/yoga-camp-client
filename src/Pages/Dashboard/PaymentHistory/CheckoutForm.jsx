@@ -8,34 +8,34 @@ import {toast} from "react-hot-toast";
 const CheckoutForm = ({selected}) => {
   const {user} = useAuth();
   const date = new Date();
-  //const {
-  //  _id,
-  //  className,
-  //  classImage,
-  //  instructorImage,
-  //  instructorName,
-  //  email,
-  //  title,
-  //  price,
-  //  enrolled,
-  //  description,
-  //  selectedId,
-  //} = selected;
-  //const data = {
-  //  classId: selectedId,
-  //  enrolledId: _id,
-  //  email: user.email,
-  //  className,
-  //  classImage,
-  //  instructorImage,
-  //  instructorName,
-  //  instructorEmail: email,
-  //  title,
-  //  price,
-  //  enrolled,
-  //  description,
-  //  date,
-  //};
+  const {
+    _id,
+    className,
+    classImage,
+    instructorImage,
+    instructorName,
+    email,
+    title,
+    price,
+    enrolled,
+    description,
+    selectedId,
+  } = selected;
+  const data = {
+    classId: selectedId,
+    enrolledId: _id,
+    email: user?.email,
+    className,
+    classImage,
+    instructorImage,
+    instructorName,
+    instructorEmail: email,
+    title,
+    price,
+    enrolled,
+    description,
+    date,
+  };
 
   // !
 
@@ -74,19 +74,19 @@ const CheckoutForm = ({selected}) => {
     } else {
       // !
 
-      // todo fetch(`${import.meta.env.VITE_API_URL}/postEnrolled`, {
-      //  method: "POST",
-      //  headers: {"Content-Type": "application/json"},
-      //  body: JSON.stringify(data),
-      //})
-      //  .then((res) => res.json())
-      //  .then((result) => {
-      //    toast("Successfully Purchased");
-      //    navigate("/dashboard/myEnrolledClasses");
-      //  })
-      //  .catch((error) => {
-      //    console.log("Error:", error);
-      //  });
+      fetch(`${import.meta.env.VITE_API_URL}/postEnrolled`, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(data),
+      })
+        .then((res) => res.json())
+        .then((result) => {
+          toast("Successfully Purchased");
+          navigate("/dashboard/myEnrolledClasses");
+        })
+        .catch((error) => {
+          console.log("Error:", error);
+        });
 
       // ?
       // fetch(`${import.meta.env.VITE_API_URL}/selected/${_id}`, {
@@ -134,11 +134,11 @@ const CheckoutForm = ({selected}) => {
   return (
     <div>
       <form
-        className="lg:w-1/3 m-8 mt-60 checkout-form mx-auto"
+        className="lg:max-w-xl m-8 mt-60 checkout-form mx-auto"
         onSubmit={handleSubmit}
       >
         <CardElement
-          className=" border rounded-md p-3"
+          className=" border border-amber-600 p-3 border-5 w-full rounded-md"
           options={{
             style: {
               base: {
@@ -156,7 +156,8 @@ const CheckoutForm = ({selected}) => {
           onChange={handleCardChange}
         />
         <button
-          className=" mt-4 px-4 py-1 text-gray-100 dark:text-gray-300 rounded-md bg-blue-500 dark:bg-gray-500 disabled:bg-gray-300"
+          className=" mt-4 px-4 py-1 text-red-500 dark:text-gray-800 rounded-md bg-indigo-500 dark:bg-indigo-600 disabled:bg-indigo-200"
+          style={{color: "white"}}
           type="submit"
           disabled={!stripe || !isCardNumberComplete}
         >
