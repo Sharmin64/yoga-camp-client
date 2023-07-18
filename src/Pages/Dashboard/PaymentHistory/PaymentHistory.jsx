@@ -5,9 +5,11 @@ import {loadStripe} from "@stripe/stripe-js";
 //import {useLoaderData} from "react-router-dom";
 import CheckoutForm from "./CheckoutForm";
 import useAuth from "../../../hooks/useAuth";
+import {useLoaderData} from "react-router-dom";
 
 const stripePromise = loadStripe(`${import.meta.env.VITE_Payment_Gateway_PK}`);
 const PaymentHistory = () => {
+  const selectedClass = useLoaderData();
   const [selected, setSelected] = useState({});
   const {user} = useAuth();
   console.log(user);
@@ -30,7 +32,7 @@ const PaymentHistory = () => {
         </h1>
       </div>
       <Elements stripe={stripePromise}>
-        <CheckoutForm selected={selected} />
+        <CheckoutForm selected={selected} selectedClass={selectedClass} />
       </Elements>
     </div>
   );

@@ -17,7 +17,7 @@ const PopularClasses = () => {
     <>
       {classes && (
         <div className="text-center w-96 mx-auto">
-          <h2 className=" text-4xl mt-20 lg:mt-0 text-center mb-20 text-indigo-600 font-bold">
+          <h2 className=" text-4xl mt-20 pt-5 lg:mt-0 text-center mb-20 text-indigo-600 font-bold">
             <TypingEffect words={["Popular Classes     ", "Find Yours    "]} />
           </h2>
         </div>

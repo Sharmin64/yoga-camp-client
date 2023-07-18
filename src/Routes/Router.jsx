@@ -73,7 +73,18 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/paymenthistory",
         element: <PaymentHistory />,
+        children: [
+          {
+            path: ":id",
+            element: <PaymentHistory />,
+            loader: ({params}) =>
+              fetch(
+                `${import.meta.env.VITE_API_URL}/selectedClass/${params.id}`
+              ),
+          },
+        ],
       },
+
       {
         path: "/dashboard/addclass",
         element: <AddClass />,

@@ -5,9 +5,9 @@ import {useNavigate} from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import {toast} from "react-hot-toast";
 
-const CheckoutForm = ({selected}) => {
+const CheckoutForm = ({selected, selectedClass}) => {
   const {user} = useAuth();
-  const date = new Date();
+  //const date = new Date();
   const {
     _id,
     className,
@@ -15,12 +15,12 @@ const CheckoutForm = ({selected}) => {
     instructorImage,
     instructorName,
     email,
-    title,
     price,
     enrolled,
     description,
     selectedId,
-  } = selected;
+  } = selectedClass;
+  //console.log(selectedClass);
   const data = {
     classId: selectedId,
     enrolledId: _id,
@@ -30,11 +30,9 @@ const CheckoutForm = ({selected}) => {
     instructorImage,
     instructorName,
     instructorEmail: email,
-    title,
     price,
     enrolled,
     description,
-    date,
   };
 
   // !
@@ -82,7 +80,7 @@ const CheckoutForm = ({selected}) => {
         .then((res) => res.json())
         .then((result) => {
           toast("Successfully Purchased");
-          navigate("/dashboard/myEnrolledClasses");
+          navigate("/dashboard/myenrolledclass");
         })
         .catch((error) => {
           console.log("Error:", error);
@@ -156,7 +154,7 @@ const CheckoutForm = ({selected}) => {
           onChange={handleCardChange}
         />
         <button
-          className=" mt-4 px-4 py-1 text-red-500 dark:text-gray-800 rounded-md bg-indigo-500 dark:bg-indigo-600 disabled:bg-indigo-200"
+          className=" w-96 mx-24 mt-4 px-4 py-1 text-red-500 dark:text-gray-800 rounded-md bg-indigo-500 dark:bg-indigo-600 disabled:bg-indigo-200"
           style={{color: "white"}}
           type="submit"
           disabled={!stripe || !isCardNumberComplete}

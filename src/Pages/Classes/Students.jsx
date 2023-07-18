@@ -7,6 +7,7 @@ const Students = ({student}) => {
     _id,
     instructorName,
     classImage,
+    className,
     enrolled,
     availableSeats,
     seats,
@@ -15,7 +16,17 @@ const Students = ({student}) => {
   } = student;
 
   const handleSelected = () => {
-    const classDetails = {instructorName, classImage, enrolled};
+    const classDetails = {
+      classId: _id,
+      instructorName,
+      classImage,
+      className,
+      enrolled,
+      availableSeats,
+      seats,
+      price,
+      description,
+    };
 
     fetch(`${import.meta.env.VITE_API_URL}/postSelected`, {
       method: "POST",

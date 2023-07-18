@@ -1,14 +1,25 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Helmet} from "react-helmet-async";
 import useClass from "../../../hooks/useClass";
 import {FaTrashAlt} from "react-icons/fa";
 import Swal from "sweetalert2";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import {toast} from "react-hot-toast";
 
 const MySelectedClass = () => {
-  const classes = useClass();
-  console.log(classes);
+  const [classes, setClasses] = useState([]);
+  //console.log(classes);
+  //const [enrolledClass, setEnrolledClass] = useState({});
+  const [enrolled, setEnrolled] = useState({});
+  const nevigate = useNavigate();
 
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_API_URL}/selectedClass`)
+      .then((res) => res.json())
+      .then((data) => {
+        setClasses(data);
+      });
+  }, []);
   const handleDelete = (itemName) => {
     Swal.fire({
       title: "Are you sure?",
@@ -33,20 +44,46 @@ const MySelectedClass = () => {
     });
   };
 
-  const handlePayment = (itemName) => {
-    fetch(`${import.meta.env.VITE_API_URL}/postClasses/${itemName._id}`, {
-      method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify(data),
-    })
+  const handlePayment = (id) => {
+    console.log(id);
+    nevigate(`/dashboard/paymenthistory/${id}`);
+    fetch(`${import.meta.env.VITE_API_URL}/selectedClass/${id}`)
       .then((res) => res.json())
-      .then((result) => {
-        console.log(result);
-        toast("Class Posted Successfully");
-      })
-      .catch((error) => {
-        console.log("error occured", error.message);
+      .then((data) => {
+        setEnrolled(data);
+        console.log(data);
+
+        console.log(enrolled);
       });
+    console.log(enrolled);
+
+    //fetch(`${import.meta.env.VITE_API_URL}/postEnrolled`, {
+    //  method: "POST",
+    //  headers: {
+    //    "content-type": "application/json",
+    //  },
+    //  body: JSON.stringify(enrolled),
+    //})
+    //  .then((res) => res.json())
+    //  .then((data) => {
+    //    if (data.insertedId) {
+    //      toast("Enrolled Successful");
+    //    }
+    //  });
+
+    //fetch(`${import.meta.env.VITE_API_URL}/postEnrolled`, {
+    //  method: "POST",
+    //  headers: {"Content-Type": "application/json"},
+    //  body: JSON.stringify(enrollClass),
+    //})
+    //  .then((res) => res.json())
+    //  .then((result) => {
+    //    console.log(result);
+    //    toast("Class Posted Successfully");
+    //  })
+    //  .catch((error) => {
+    //    console.log("error occured", error.message);
+    //  });
   };
 
   return (
@@ -55,20 +92,23 @@ const MySelectedClass = () => {
         <title>CorePower Yoga || MyClass</title>
       </Helmet>
       <div className="flex justify-evenly">
-        <h1>Selected Class</h1>
-        <Link to="/dashboard/paymenthistory">
-          <button className="btn btn-warning">Pay</button>
-        </Link>
+        <h1 className="text-3xl mb-10 font-bold font-mono text-indigo-600">
+          Selected Class
+        </h1>
+        {/*<Link to="/dashboard/paymenthistory">
+          <button className="btn btn-warning py-2 px-4">Pay</button>
+        </Link>*/}
       </div>
-      <div className="overflow-x-auto w-full">
+      <div className="mx-auto w-full">
         <table className="table">
           {/* head */}
-          <thead className="bg-amber-300">
+          <thead className="bg-indigo-800 text-white">
             <tr>
               <th>#</th>
               <th>Image</th>
-              <th>ClassName</th>
+              <th>InstructorName</th>
               <th>Price</th>
+              <th>Payment</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -87,12 +127,16 @@ const MySelectedClass = () => {
                       </div>
                     </div>
                   </td>
-                  <td>{itemName.className}</td>
+                  <td>{itemName.instructorName}</td>
                   <td>{itemName.price}</td>
                   <td>
                     <button
-                      onClick={() => handlePayment(itemName._id)}
-                      className="btn btn-ghost bg-red-400 text-white rounded-full btn-lg"
+                      onClick={() =>
+                        nevigate(
+                          `/dashboard/paymenthistory/${itemName?.classId}`
+                        )
+                      }
+                      className="btn btn-ghost bg-indigo-400 text-white rounded-lg btn-lg"
                     >
                       Pay
                     </button>
@@ -100,7 +144,7 @@ const MySelectedClass = () => {
                   <td>
                     <button
                       onClick={() => handleDelete(itemName)}
-                      className="btn btn-ghost bg-red-400 text-white rounded-full btn-lg"
+                      className="btn btn-ghost bg-indigo-400 text-white rounded-lg btn-lg"
                     >
                       <FaTrashAlt />
                     </button>

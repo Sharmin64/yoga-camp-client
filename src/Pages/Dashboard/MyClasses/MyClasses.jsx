@@ -62,7 +62,6 @@ const MyClasses = () => {
               <th>Image</th>
               <th>Name</th>
               <th>Email</th>
-
               <th> Status</th>
               <th>Update</th>
             </tr>
@@ -74,11 +73,11 @@ const MyClasses = () => {
                 <td>
                   <img
                     className="w-24 h-24 rounded-xl"
-                    src={user.image}
+                    src={user.classImage}
                     alt=""
                   />
                 </td>
-                <td>{user.name}</td>
+                <td>{user.className}</td>
                 <td>{user.email}</td>
                 <td className="text-lg font-semibold text-indigo-400">
                   {user.status}

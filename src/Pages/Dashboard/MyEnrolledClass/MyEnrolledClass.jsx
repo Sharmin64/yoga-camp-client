@@ -8,7 +8,7 @@ const MyEnrolledClass = () => {
   const {user} = useAuth();
   const [enrolledClasses, setEnrolledClasses] = useState([]);
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/addedClasses/${user?.email}`)
+    fetch(`${import.meta.env.VITE_API_URL}/enrolledClass`)
       .then((res) => res.json())
       .then((data) => {
         setEnrolledClasses(data);
@@ -29,7 +29,6 @@ const MyEnrolledClass = () => {
               <th>Image</th>
               <th>Name</th>
               <th>Email</th>
-
               <th> Status</th>
               <th>Update</th>
             </tr>
@@ -41,7 +40,7 @@ const MyEnrolledClass = () => {
                 <td>
                   <img
                     className="w-24 h-24 rounded-xl"
-                    src={user.image}
+                    src={user.classImage}
                     alt=""
                   />
                 </td>
