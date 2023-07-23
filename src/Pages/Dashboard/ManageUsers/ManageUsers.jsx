@@ -20,7 +20,7 @@ const ManageUsers = () => {
       });
   }, []);
   const handleMakeAdmin = () => {
-    fetch(`${import.meta.env.VITE_API_URL}/users/admin/${user._id}`, {
+    fetch(`${import.meta.env.VITE_API_URL}/users/admin/${user?._id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
@@ -33,7 +33,7 @@ const ManageUsers = () => {
       });
   };
   const handleMakeInstructor = () => {
-    fetch(`${import.meta.env.VITE_API_URL}/users/instructor/${user._id}`, {
+    fetch(`${import.meta.env.VITE_API_URL}/users/instructor/${user?._id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
@@ -61,7 +61,6 @@ const ManageUsers = () => {
               <th>#</th>
               <th>Name</th>
               <th>Email</th>
-              <th> Role</th>
               <th> Make Admin </th>
               <th>Make Instructor </th>
               <th>Action</th>
@@ -73,7 +72,6 @@ const ManageUsers = () => {
                 <td>{index + 1}</td>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
-                {/*<td>{role}</td>*/}
                 <td>
                   {user.role === "admin" ? (
                     "admin"

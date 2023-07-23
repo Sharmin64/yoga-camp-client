@@ -3,36 +3,55 @@ import {useContext} from "react";
 import {Link} from "react-router-dom";
 import {AuthContext} from "../../../Providers/AuthProvider";
 import icon from "../../../assets/icon/yoga_icon.png";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
   const {user, logOut} = useContext(AuthContext);
 
   const handleLogOut = () => {
-    logOut()
-      .then(() => {})
-      .catch((error) => console.log(error));
+    Swal.fire({
+      title: "Are you sure to Logout?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Log Out!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("Logged out!", "User has been log out!.", "success");
+        logOut()
+          .then(() => {})
+          .catch((error) => console.log(error));
+      }
+    });
   };
   const navItems = (
     <>
-      <li>
+      <li className="text-2xl font-bold">
         <Link to="/">Home</Link>
       </li>
-      <li>
+      <li className="text-2xl font-bold">
         <Link to="/instructors">Instructors</Link>
       </li>
-      <li>
-        <Link to="/dashboard">DashBoard</Link>
-      </li>
-      <li>
+      <li className="text-2xl font-bold">
         <Link to="/classes">Classes</Link>
       </li>
-      <li>
+      {user ? (
+        <>
+          <li className="text-2xl font-bold">
+            <Link to="/dashboard">DashBoard</Link>
+          </li>
+        </>
+      ) : (
+        " "
+      )}
+      <li className="text-2xl font-bold">
         <Link to="/signup">SignUp</Link>
       </li>
     </>
   );
   return (
-    <div className="navbar fixed z-10 max-w-screen-xl mx-auto bg-opacity-50  bg-indigo-600 text-[#dfd3c5] top-0">
+    <div className="navbar fixed z-10 max-w-screen-xl mx-auto bg-opacity-20 bg-indigo-600 text-[#faebd7]  top-0">
       <div className="navbar-start">
         <div className="dropdown ">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">

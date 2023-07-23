@@ -4,6 +4,7 @@ import {Helmet} from "react-helmet-async";
 import ClassList from "../../ClassList/ClassList";
 import useAuth from "../../../hooks/useAuth";
 import useRole from "../../../hooks/useRole";
+import {Link} from "react-router-dom";
 
 const ManageClasses = () => {
   const {user, loading} = useAuth();
@@ -99,7 +100,9 @@ const ManageClasses = () => {
                     <th className="!pl- text-center">Approve</th>
                   )}
                   {role === "Instructor" && (
-                    <th className="!pl- text-center">Feedback</th>
+                    <Link to="/dashboard/feedback">
+                      <th className="!pl- text-center">Feedback</th>
+                    </Link>
                   )}
                   {role === "admin" && (
                     <th className="!pl- text-center">Deny</th>

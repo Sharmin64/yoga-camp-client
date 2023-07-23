@@ -50,9 +50,9 @@ const SignUp = () => {
                   showConfirmButton: false,
                   timer: 1500,
                 });
-                navigate(from, {replace: true});
               }
             });
+          navigate(from, {replace: true});
         })
         .catch((error) => console.log(error));
     });
@@ -91,7 +91,9 @@ const SignUp = () => {
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left object-cover w-full">
-            <h1 className="text-5xl font-bold">Sign up !</h1>
+            <Link to="/">
+              <h1 className="text-5xl font-bold">Sign up !</h1>
+            </Link>
             <img src={registerImg} alt="" />
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">

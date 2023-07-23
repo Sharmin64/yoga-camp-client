@@ -7,7 +7,7 @@ import SignUp from "../Pages/SignUp/SignUp";
 import DashBoard from "../Layout/DashBoard";
 
 import Classes from "../Pages/Classes/Classes";
-//import PrivateRoute from "./PrivateRoute";
+import PrivateRoute from "./PrivateRoute";
 import Instructors from "../Pages/Instructors/Instructors";
 import ManageUsers from "../Pages/Dashboard/ManageUsers/ManageUsers";
 import ManageClasses from "../Pages/Dashboard/ManageClasses/ManageClasses";
@@ -16,6 +16,9 @@ import MySelectedClass from "../Pages/Dashboard/MyClass/MySelectedClass";
 import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
 import AddClass from "../Pages/Dashboard/AddClass/AddClass";
 import MyClasses from "../Pages/Dashboard/MyClasses/MyClasses";
+import AdminRoute from "./AdminRoute";
+import Feedback from "../Pages/Dashboard/Feedback/Feedback";
+import Dashboard from "../Pages/Dashboard/Dashboard/Dashboard";
 
 export const router = createBrowserRouter([
   {
@@ -48,11 +51,15 @@ export const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: (
-      //<PrivateRoute>
-      <DashBoard />
-      //</PrivateRoute>
+      <PrivateRoute>
+        <DashBoard />
+      </PrivateRoute>
     ),
     children: [
+      {
+        path: "/dashboard",
+        element: <Dashboard></Dashboard>,
+      },
       {
         path: "/dashboard/myselectedclass",
         element: <MySelectedClass />,
@@ -60,29 +67,29 @@ export const router = createBrowserRouter([
 
       {
         path: "/dashboard/manageusers",
-        element: <ManageUsers />,
+        element: (
+          <AdminRoute>
+            <ManageUsers />
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/manageclasses",
         element: <ManageClasses />,
       },
       {
+        path: "/dashboard/feedback",
+        element: <Feedback></Feedback>,
+      },
+      {
         path: "/dashboard/myenrolledclass",
         element: <MyEnrolledClass />,
       },
       {
-        path: "/dashboard/paymenthistory",
+        path: "/dashboard/paymenthistory/:id",
         element: <PaymentHistory />,
-        children: [
-          {
-            path: ":id",
-            element: <PaymentHistory />,
-            loader: ({params}) =>
-              fetch(
-                `${import.meta.env.VITE_API_URL}/selectedClass/${params.id}`
-              ),
-          },
-        ],
+        loader: ({params}) =>
+          fetch(`${import.meta.env.VITE_API_URL}/selectedClass/${params._id}`),
       },
 
       {

@@ -95,9 +95,6 @@ const MySelectedClass = () => {
         <h1 className="text-3xl mb-10 font-bold font-mono text-indigo-600">
           Selected Class
         </h1>
-        {/*<Link to="/dashboard/paymenthistory">
-          <button className="btn btn-warning py-2 px-4">Pay</button>
-        </Link>*/}
       </div>
       <div className="mx-auto w-full">
         <table className="table">

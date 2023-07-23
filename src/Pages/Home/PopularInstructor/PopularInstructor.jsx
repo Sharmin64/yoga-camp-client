@@ -13,7 +13,7 @@ const PopularInstructor = () => {
   }, []);
   return (
     <div>
-      <h1 className="text-center font-bold font-mono text-3xl">
+      <h1 className="text-center font-bold font-mono text-3xl mt-16">
         Popular Instructors
       </h1>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 ">
