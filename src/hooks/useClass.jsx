@@ -1,32 +1,25 @@
-//import {useQuery} from "@tanstack/react-query";
+import {useQuery} from "@tanstack/react-query";
 import useAuth from "./useAuth";
-import {useState} from "react";
-import {useEffect} from "react";
-//import useAxiosSecure from "./useAxiosSecure";
+import useAxiosSecure from "./useAxiosSecure";
+import axios from "axios";
 
 const useClass = () => {
-  const {user, loading} = useAuth();
-  const [classes, setClasses] = useState([]);
-  //const [axioxSecure] = useAxiosSecure();
-  //const token = localStorage.getItem("access-token");
-
-  //const {refetch, data: eClass = []} = useQuery({
-  //  queryKey: ["classes", user?.email],
-  //  enabled: !loading,
-  //  queryFn: async () => {
-  //    const res = await axioxSecure(`/classes?email=${user?.email}`);
-  //    console.log("res from axios", res);
-  //    return res.data;
-  //  },
-  //});
-  useEffect(() => {
-    console.log(user?.email);
-
-    fetch(`${import.meta.env.VITE_API_URL}/classes?email=${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => setClasses(data));
-  }, [user?.email]);
-  return classes;
+  const {user} = useAuth();
+  const [axiosSecure] = useAxiosSecure();
+  const {data: addedClass = [], refetch} = useQuery({
+    queryKey: ["class", user?.email],
+    queryFn: async () => {
+      const res = await axios.get(
+        `${import.meta.env.VITE_API_URL}/selected-classes-cart?email=${
+          user?.email
+        }`
+      );
+      return res.data;
+    },
+  });
+  return [addedClass, refetch];
 };
 
 export default useClass;
+
+

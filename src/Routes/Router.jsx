@@ -1,50 +1,51 @@
 import {createBrowserRouter} from "react-router-dom";
 import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home/Home";
-//import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Login from "../Pages/Login/Login";
-import SignUp from "../Pages/SignUp/SignUp";
 import DashBoard from "../Layout/DashBoard";
-
 import Classes from "../Pages/Classes/Classes";
 import PrivateRoute from "./PrivateRoute";
 import Instructors from "../Pages/Instructors/Instructors";
-import ManageUsers from "../Pages/Dashboard/ManageUsers/ManageUsers";
-import ManageClasses from "../Pages/Dashboard/ManageClasses/ManageClasses";
-import MyEnrolledClass from "../Pages/Dashboard/MyEnrolledClass/MyEnrolledClass";
-import MySelectedClass from "../Pages/Dashboard/MyClass/MySelectedClass";
+
+import SelectedClasses from "../Pages/Dashboard/MyClass/SelectedClasses";
 import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
-import AddClass from "../Pages/Dashboard/AddClass/AddClass";
-import MyClasses from "../Pages/Dashboard/MyClasses/MyClasses";
+import AddClass from "../Pages/Dashboard/InstructorPages/AddClass";
+import MyClasses from "../Pages/Dashboard/InstructorPages/MyClasses";
 import AdminRoute from "./AdminRoute";
-import Feedback from "../Pages/Dashboard/Feedback/Feedback";
-import Dashboard from "../Pages/Dashboard/Dashboard/Dashboard";
+import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers";
+import ManageClass from "../Pages/Dashboard/Admin/ManageClass";
+import UpdateClass from "../Pages/Dashboard/InstructorPages/UpdateClass";
+import InstructorRoute from "./InstructorRoute";
+import EnrolledClasses from "../Pages/Dashboard/MyEnrolledClass/EnrolledClasses";
+import SignUp from "../Pages/SignUp/SignUp";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
-    //errorElement: <ErrorPage />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
         element: <Home />,
       },
       {
-        path: "classes",
-        element: <Classes />,
-      },
-      {
-        path: "instructors",
+        path: "/instructors",
         element: <Instructors />,
       },
       {
-        path: "login",
-        element: <Login></Login>,
+        path: "/classes",
+        element: <Classes />,
+      },
+
+      {
+        path: "/login",
+        element: <Login />,
       },
       {
-        path: "signup",
-        element: <SignUp></SignUp>,
+        path: "/signup",
+        element: <SignUp />,
       },
     ],
   },
@@ -55,50 +56,71 @@ export const router = createBrowserRouter([
         <DashBoard />
       </PrivateRoute>
     ),
+    errorElement: <ErrorPage />,
     children: [
       {
-        path: "/dashboard",
-        element: <Dashboard></Dashboard>,
+        path: "/dashboard/selected-classes",
+        element: (
+          <PrivateRoute>
+            <SelectedClasses />
+          </PrivateRoute>
+        ),
       },
       {
-        path: "/dashboard/myselectedclass",
-        element: <MySelectedClass />,
+        path: "/dashboard/enrolled-classes",
+        element: (
+          <PrivateRoute>
+            <EnrolledClasses />
+          </PrivateRoute>
+        ),
       },
-
       {
-        path: "/dashboard/manageusers",
+        path: "/dashboard/payment-history",
+        element: (
+          <PrivateRoute>
+            <PaymentHistory />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/addClass",
+        element: (
+          <InstructorRoute>
+            <AddClass />
+          </InstructorRoute>
+        ),
+      },
+      {
+        path: "/dashboard/myClasses",
+        element: (
+          <InstructorRoute>
+            <MyClasses />
+          </InstructorRoute>
+        ),
+      },
+      {
+        path: "/dashboard/updateClasses",
+        element: (
+          <InstructorRoute>
+            <UpdateClass />
+          </InstructorRoute>
+        ),
+      },
+      {
+        path: "/dashboard/manageClass",
+        element: (
+          <AdminRoute>
+            <ManageClass />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/manageUsers",
         element: (
           <AdminRoute>
             <ManageUsers />
           </AdminRoute>
         ),
-      },
-      {
-        path: "/dashboard/manageclasses",
-        element: <ManageClasses />,
-      },
-      {
-        path: "/dashboard/feedback",
-        element: <Feedback></Feedback>,
-      },
-      {
-        path: "/dashboard/myenrolledclass",
-        element: <MyEnrolledClass />,
-      },
-      {
-        path: "/dashboard/paymenthistory/:id",
-        element: <PaymentHistory />,
-        loader: ({params}) =>
-          fetch(`${import.meta.env.VITE_API_URL}/selectedClass/${params._id}`),
-      },
-
-      {
-        path: "/dashboard/addclass",
-        element: <AddClass />,
-      },
-      {
-        path: "/dashboard/myclasses",
-        element: <MyClasses />,
       },
     ],
   },

@@ -1,13 +1,16 @@
-import React, {useEffect, useState} from "react";
+import ClassCard from "../../components/ClassCard/ClassCard";
+import useAllClasses from "../../hooks/useAllClasses";
 import {Helmet} from "react-helmet-async";
-import Students from "./Students";
-//import {Fade} from "react-awesome-reveal";
-import useYogaClass from "../../hooks/useYogaClass";
-//import { Fade } from "react-awesome-reveal";
+import {useNavigation} from "react-router-dom";
+import Loader from "../Shared/Loader";
+import {Fade} from "react-awesome-reveal";
 
 const Classes = () => {
-  const [classes, loading, refetch] = useYogaClass();
-  //console.log(classes);
+  const [classes] = useAllClasses();
+  const navigation = useNavigation();
+  if (navigation.state === "loading") {
+    return <Loader />;
+  }
 
   const bgStyle = {
     backgroundImage: `url('https://img.freepik.com/free-photo/yoga-vrikshasana-pose-tropical-location_1163-3366.jpg?size=626&ext=jpg&ga=GA1.2.947883390.1663212112&semt=ais')`,
@@ -18,21 +21,11 @@ const Classes = () => {
     backgroundColor: "#606060",
     marginTop: "60px",
   };
-
-  //useEffect(() => {
-  //  fetch("${import.meta.env.VITE_API_URL}/postClasses")
-  //    .then((res) => res.json())
-  //    .then((data) => {
-  //      setStudents(data);
-  //    });
-  //}, []);
-
   return (
-    <div className="container">
+    <>
       <Helmet>
-        <title>CorePower Yoga || Classes</title>
+        <title>Core Power | All Classes</title>
       </Helmet>
-
       <section style={bgStyle}>
         <div className="px-4 mx-auto max-w-screen-xl text-left py-24 lg:py-56">
           <div className="text-center lg:text-left">
@@ -51,30 +44,15 @@ const Classes = () => {
           </div>
         </div>
       </section>
-      {/*<Fade>*/}
-      <h1 className="text-center py-12  font-bold md:text-5xl text-4xl   bg-indigo-300">
-        Our Classes
-      </h1>
-      {/*</Fade>*/}
-      <div
-        className="grid grid-cols-1 lg:grid-cols-3 gap-4"
-        //data-aos="zoom-in"
-        //data-aos-delay="100"
-      >
-        {classes &&
-          classes.map((student) => (
-            //console.log(student)
-
-            <Students
-              key={student._id}
-              student={student}
-              style={{
-                backgroundColor: student.availableSeats === 0 ? "red" : "white",
-              }}
-            ></Students>
+      <Fade cascade>
+        {/*<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-container">*/}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-2xl md:px-20 lg:px-8 lg:py-10">
+          {classes?.map((singleClass) => (
+            <ClassCard key={singleClass._id} singleClass={singleClass} />
           ))}
-      </div>
-    </div>
+        </div>
+      </Fade>
+    </>
   );
 };
 

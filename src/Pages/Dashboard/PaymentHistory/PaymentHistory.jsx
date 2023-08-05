@@ -1,40 +1,71 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, {useEffect, useState} from "react";
-import {Elements} from "@stripe/react-stripe-js";
-import {loadStripe} from "@stripe/stripe-js";
-//import "./Checkout.css";
-//import {useLoaderData} from "react-router-dom";
-import CheckoutForm from "./CheckoutForm";
+import moment from "moment";
+import {useNavigation} from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
-import {useLoaderData} from "react-router-dom";
+import {Helmet} from "react-helmet-async";
+import axios from "axios";
+import Loader from "../../Shared/Loader";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
-const stripePromise = loadStripe(`${import.meta.env.VITE_Payment_Gateway_PK}`);
 const PaymentHistory = () => {
-  const selectedClass = useLoaderData();
-  const [selected, setSelected] = useState({});
+  const navigation = useNavigation();
+  if (navigation.state === "loading") {
+    return <Loader />;
+  }
   const {user} = useAuth();
-  console.log(user);
+  const [axiosSecure] = useAxiosSecure();
+  const [histories, setHistories] = useState([]);
+
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/selected/${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setSelected(data);
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/payment?email=${user?.email}`)
+      .then((res) => {
+        setHistories(res.data);
       });
-  }, [user?.email]);
+  }, []);
 
   return (
-    <div className="p-4 ">
-      <div className=" text-center">
-        <h1 className="text-5xl font-extrabold text-red-600 dark:text-white">
-          Core power Yoga
-          <small className="ml-2 font-semibold text-gray-500 dark:text-gray-400">
-            Let us move on your fitness journey...
-          </small>
-        </h1>
+    <section>
+      <Helmet>
+        <title>Core Power | Dashboard-Payment History</title>
+      </Helmet>
+
+      <div className="lg:mx-10 my-10">
+        <div className="overflow-x-auto">
+          <table className="table table-zebra">
+            {/* head */}
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Transaction Id</th>
+                <th>Price</th>
+                <th>Email</th>
+                <th>date</th>
+                <th>Order Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {histories.map((history, index) => (
+                <tr key={history._id}>
+                  <th className="font-semibold">{index + 1}</th>
+                  <td className="font-semibold">{history.transactionId}</td>
+                  <td className="font-semibold">$ {history.price}</td>
+                  <td className="font-semibold">{history.email}</td>
+                  <td className="font-semibold">
+                    {moment(history.date).format("MMM Do YY")}
+                  </td>
+                  <td className="font-semibold text-green-500">
+                    {history.orderStatus}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-      <Elements stripe={stripePromise}>
-        <CheckoutForm selected={selected} selectedClass={selectedClass} />
-      </Elements>
-    </div>
+    </section>
   );
 };
 

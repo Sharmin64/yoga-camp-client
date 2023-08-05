@@ -6,8 +6,8 @@ import {motion} from "framer-motion";
 const ExtraSection = () => {
   return (
     <>
-      <div className="divider">
-        <h3 className="text-3xl font-mono font-bold text-center mb-3">
+      <div className="divider my-10">
+        <h3 className="text-3xl font-mono font-semibold text-indigo-600 text-center mb-3">
           |What We Offer|
         </h3>
       </div>
@@ -19,9 +19,9 @@ const ExtraSection = () => {
           right: 50,
           bottom: 50,
         }}
-        className="grid lg:grid-cols-3 sm:grid-cols-1 gap-4 sm:w-full sm:mx-auto lg:mx-auto"
+        className="grid lg:grid-cols-3 sm:grid-cols-1 gap-4 sm:w-full sm:mx-auto lg:mx-auto mb-14"
       >
-        <div className="card card-compact w-96 bg-base-100 shadow-xl transition duration-150 ease-out hover:ease-in">
+        <div className="card card-compact w-96 bg-indigo-100 shadow-xl transition duration-150 ease-out hover:ease-in">
           <figure>
             <img
               src="https://kodesolution.com/2019/martialz/yoga/wp-content/uploads/sites/12/2019/02/meditation.png"
@@ -39,7 +39,7 @@ const ExtraSection = () => {
             </div>
           </div>
         </div>
-        <div className="card card-compact w-96 bg-base-100 shadow-xl transition duration-150 ease-out hover:ease-in">
+        <div className="card card-compact w-96 bg-indigo-100 shadow-xl transition duration-150 ease-out hover:ease-in">
           <figure>
             <img
               src="https://kodesolution.com/2019/martialz/yoga/wp-content/uploads/sites/12/2019/02/martial-arts.png"
@@ -57,7 +57,7 @@ const ExtraSection = () => {
             </div>
           </div>
         </div>
-        <div className="card card-compact w-96 bg-base-100 shadow-xl transition duration-150 ease-out hover:ease-in">
+        <div className="card card-compact w-96 bg-indigo-100 shadow-xl transition duration-150 ease-out hover:ease-in">
           <figure>
             <img
               src="https://kodesolution.com/2019/martialz/yoga/wp-content/uploads/sites/12/2019/02/belt.png"
@@ -75,7 +75,7 @@ const ExtraSection = () => {
             </div>
           </div>
         </div>
-        <div className="card card-compact w-96 bg-base-100 shadow-xl transition duration-150 ease-out hover:ease-in">
+        <div className="card card-compact w-96 bg-indigo-100 shadow-xl transition duration-150 ease-out hover:ease-in">
           <figure>
             <img className="w-24 rounded-full" src={offerImg} alt="Shoes" />
           </figure>
@@ -90,7 +90,7 @@ const ExtraSection = () => {
             </div>
           </div>
         </div>
-        <div className="card card-compact w-96 bg-base-100 shadow-xl transition duration-150 ease-out hover:ease-in">
+        <div className="card card-compact w-96 bg-indigo-100 shadow-xl transition duration-150 ease-out hover:ease-in">
           <figure>
             <img className="w-24" src={offerB} alt="" />
           </figure>
@@ -105,9 +105,9 @@ const ExtraSection = () => {
             </div>
           </div>
         </div>
-        <div className="card card-compact w-96 bg-base-100 shadow-xl transition duration-150 ease-out hover:ease-in">
+        <div className="card card-compact w-96 bg-indigo-100 shadow-xl transition duration-150 ease-out hover:ease-in">
           <figure>
-            <img className="w-24" src={offerC} alt="Shoes" />
+            <img className="w-24 bg-indigo-100" src={offerC} alt="yoga" />
           </figure>
           <div className="card-body text-center">
             <h2 className="card-title text-center ml-28">Healthy Life</h2>

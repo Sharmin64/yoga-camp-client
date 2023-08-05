@@ -1,31 +1,17 @@
-import {useState, useEffect} from "react";
-import Instructors from "./Instructors";
+import InstructorView from "../../../components/InstructorView/InstructorView";
+import useAllInstructors from "../../../hooks/useAllInstructors";
 
-const PopularInstructor = () => {
-  const [instructors, setInstructors] = useState([]);
-  useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/instructors`)
-      .then((res) => res.json())
-      .then((data) => {
-        setInstructors(data);
-        console.log(data);
-      });
-  }, []);
+const Popularinstructor = () => {
+  const [instructors] = useAllInstructors();
   return (
     <div>
-      <h1 className="text-center font-bold font-mono text-3xl mt-16">
-        Popular Instructors
-      </h1>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 ">
-        {instructors.map((instructor) => (
-          <Instructors
-            key={instructor._id}
-            instructor={instructor}
-          ></Instructors>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {instructors.slice(0, 6).map((teacher) => (
+          <InstructorView key={teacher._id} teacher={teacher} />
         ))}
       </div>
     </div>
   );
 };
 
-export default PopularInstructor;
+export default Popularinstructor;

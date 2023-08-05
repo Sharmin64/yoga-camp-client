@@ -55,12 +55,15 @@ const Login = () => {
   return (
     <>
       <Helmet>
-        <title>CorePower Yoga | Login</title>
+        <title>CorePower | Login</title>
       </Helmet>
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero h-80 bg-base-200">
         <div className="hero-content flex-col md:flex-row-reverse">
           <div className="text-center md:w-1/2 lg:w-full lg:object-cover lg:text-left">
-            <h1 className="text-5xl font-bold">Login now!</h1>
+            <Link to="/">
+              <h1 className="text-5xl font-bold">Login now!</h1>
+            </Link>
+
             <img
               style={{width: "700px"}}
               className="rounded-r-full"
@@ -68,8 +71,8 @@ const Login = () => {
               alt="loginPage"
             />
           </div>
-          <div className="card md:w-1/2 max-w-sm shadow-2xl bg-base-100">
-            <form onSubmit={handleLogin} className="card-body">
+          <div className="card shadow-2xl bg-indigo-100">
+            <form onSubmit={handleLogin} className="card-body m-0">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -92,7 +95,7 @@ const Login = () => {
                   placeholder="password"
                   className="input input-bordered"
                 />
-                <div className="text-2xl absolute top-12 cursor-pointer right-5">
+                <div className="text-2xl absolute top-12 cursor-pointer mt-5 right-5">
                   {passwordEye === false ? (
                     <FaEyeSlash onClick={handlePasswordClick} />
                   ) : (
@@ -113,24 +116,27 @@ const Login = () => {
                   value="Login"
                 />
               </div>
+              <div className="divider">OR</div>
+              <div className=" text-center">
+                <button
+                  onClick={handleSocial}
+                  className="btn btn-circle  btn-outline btn-primary"
+                >
+                  <FaGoogle className="" />
+                </button>
+              </div>
+              <p className="mb-5 text-center">
+                <small>
+                  New Here?
+                  <Link
+                    className="text-xl hover:underline decoration-1 text-indigo-500"
+                    to="/signup"
+                  >
+                    Register
+                  </Link>
+                </small>
+              </p>
             </form>
-            <div className="divider">OR</div>
-            <div className=" text-center">
-              <button
-                onClick={handleSocial}
-                className="btn btn-circle  btn-outline btn-primary"
-              >
-                <FaGoogle className="" />
-              </button>
-            </div>
-            <p className="mb-5 text-center">
-              <small>
-                New Here?
-                <Link className="text-blue-400" to="/signup">
-                  Register
-                </Link>
-              </small>
-            </p>
           </div>
         </div>
       </div>

@@ -1,0 +1,29 @@
+.wavy-border::before,
+.wavy-border::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 50px;
+  /* Adjust the width of the curve */
+  height: 20px;
+  /* Adjust the height of the curve */
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px solid white;
+  /* Border color of the curve */
+}
+
+/* Adjust the rotation and translation to create the wavy effect */
+.wavy-border::before {
+  left: -25px;
+  /* Move the left curve to the left */
+  transform: rotate(45deg) translateY(5px);
+  /* Rotate and move up */
+}
+
+.wavy-border::after {
+  right: -25px;
+  /* Move the right curve to the right */
+  transform: rotate(-45deg) translateY(5px);
+  /* Rotate and move up */
+}

@@ -18,6 +18,10 @@
 
 ## server side code link: https://github.com/programming-hero-web-course1/b7a12-summer-camp-server_side-Sharmin64
 
+## Admin Id and Password: pata@gmail.com/ pass: erT56Yui%$
+
+## instructor Id and password: frozen_ami@gmail.com / pass: ^&4Cbm,L(+
+
 ## react helmet async
 
 ## react icons installed

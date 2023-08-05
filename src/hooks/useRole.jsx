@@ -14,7 +14,7 @@ const useRole = () => {
         .then((data) => setRole(data.role));
     }
   }, [user?.email]);
-  console.log(role);
+  //console.log(role);
   return role;
 };
 export default useRole;
