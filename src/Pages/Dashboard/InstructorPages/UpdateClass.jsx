@@ -70,9 +70,9 @@ const UpdateClass = () => {
               <input
                 type="text"
                 name="name"
-                defaultValue={user.displayName}
+                defaultValue={user?.displayName}
                 placeholder="Your Name"
-                className=" w-full lg:w-96 px-6 py-2 rounded-md bg-teal-700 bg-opacity-20 focus:outline focus:outline-teal-300 input"
+                className=" w-full lg:w-96 px-6 py-2 rounded-md bg-indigo-700 bg-opacity-20 focus:outline focus:outline-indigo-300 input"
               />
             </div>
             <div className="md:w-1/2">
