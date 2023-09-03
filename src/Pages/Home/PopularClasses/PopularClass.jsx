@@ -5,7 +5,7 @@ import useAllClasses from "../../../hooks/useAllClasses";
 
 const PopularClass = () => {
   const [classes] = useAllClasses();
-  console.log(classes);
+  //console.log(classes);
   return (
     <div>
       <SectionTitle

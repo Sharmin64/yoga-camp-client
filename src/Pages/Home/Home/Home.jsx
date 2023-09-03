@@ -11,6 +11,9 @@ import PopularClass from "../PopularClasses/PopularClass";
 import Banner from "../../../components/Banner/Banner";
 import AboutSection from "../AboutSection/AboutSection";
 import Testimonial from "../Testimonial/Testimonial";
+import Founder from "../Founder/Founder";
+import StaticSite from "../StaticSite/StaticSite";
+import MaskFit from "../MaskFit/MaskFit";
 
 const Home = () => {
   const navigation = useNavigation();
@@ -29,6 +32,9 @@ const Home = () => {
         <ExtraSection />
       </div>
       <AboutSection />
+      <Founder />
+      <StaticSite />
+      <MaskFit />
       <Testimonial />
     </div>
   );

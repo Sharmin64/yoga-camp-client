@@ -20,7 +20,7 @@ const ManageClass = () => {
   const [axiosSecure] = useAxiosSecure();
   const [message, setMessage] = useState("");
 
-  console.log(classes);
+  //console.log(classes);
   const handleApproved = async (item) => {
     // console.log(item);
     const updateData = {
@@ -63,13 +63,13 @@ const ManageClass = () => {
   const handleFeedback = async (id) => {
     // console.log(id)
     const item = classes.find((cI) => cI._id === id);
-    console.log(item);
+    //console.log(item);
 
     const updateData = {
       status: item?.status,
       feedback: message,
     };
-    console.log(updateData);
+    //console.log(updateData);
 
     const res = await axios.patch(
       `${import.meta.env.VITE_API_URL}/popular-classes/${id}`,
@@ -80,13 +80,13 @@ const ManageClass = () => {
       toast.success("Feedback Sent");
     }
   };
-  console.log(classes);
+  //console.log(classes);
   return (
     <section>
       <Helmet>
         <title>Core Power | Dashboard Manage Classes</title>
       </Helmet>
-     
+
       <div>
         <div className="overflow-x-auto">
           <table className="table">

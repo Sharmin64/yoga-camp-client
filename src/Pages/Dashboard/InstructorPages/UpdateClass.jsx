@@ -69,8 +69,8 @@ const UpdateClass = () => {
       <div className="lg:mx-14">
         <form className="w-full space-y-7 mt-16" onSubmit={handleUpdate}>
           {/* Name and email */}
-          <div className="md:flex gap-4 space-y-3">
-            <div className="md:w-1/2">
+          <div className="md:flex gap-4">
+            <div className="md:w-1/2 items-center">
               <input
                 type="text"
                 name="name"
@@ -79,7 +79,7 @@ const UpdateClass = () => {
                 className=" w-full lg:w-96 px-6 py-2 rounded-md bg-indigo-700 bg-opacity-20 focus:outline focus:outline-indigo-300 input"
               />
             </div>
-            <div className="md:w-1/2">
+            <div className="md:w-1/2 items-center">
               <input
                 type="text"
                 name="email"
@@ -90,8 +90,8 @@ const UpdateClass = () => {
             </div>
           </div>
           {/* name & photo */}
-          <div className="md:flex gap-4 mt-2 space-y-3">
-            <div className="md:w-1/2">
+          <div className="md:flex gap-4 mt-2">
+            <div className="md:w-1/2 items-center">
               <input
                 type="text"
                 defaultValue={data?.className}
@@ -100,7 +100,7 @@ const UpdateClass = () => {
                 className=" w-full lg:w-96 px-6 py-2 rounded-md bg-indigo-700 bg-opacity-20 focus:outline focus:outline-indigo-300 input"
               />
             </div>
-            <div className="md:w-1/2">
+            <div className="md:w-1/2 items-center">
               <input
                 type="url"
                 defaultValue={data?.image}
@@ -112,8 +112,8 @@ const UpdateClass = () => {
           </div>
 
           {/* sit & price */}
-          <div className="md:flex gap-4 mt-2 space-y-3">
-            <div className="md:w-1/2">
+          <div className="md:flex gap-4 mt-2">
+            <div className="md:w-1/2 items-center">
               <input
                 type="text"
                 defaultValue={data?.availableSeats}
@@ -122,7 +122,7 @@ const UpdateClass = () => {
                 className=" w-full lg:w-96 px-6 py-2 rounded-md bg-indigo-700 bg-opacity-20 focus:outline focus:outline-indigo-300 input"
               />
             </div>
-            <div className="md:w-1/2">
+            <div className="md:w-1/2 items-center">
               <input
                 type="number"
                 defaultValue={data?.price}

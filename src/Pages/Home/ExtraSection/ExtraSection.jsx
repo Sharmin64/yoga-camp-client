@@ -21,7 +21,7 @@ const ExtraSection = () => {
           right: 50,
           bottom: 50,
         }}
-        className="grid lg:grid-cols-3 sm:grid-cols-1 gap-4 sm:w-full sm:mx-auto lg:mx-auto mb-14"
+        className="grid lg:grid-cols-3 sm:grid-cols-1 gap-4 sm:w-full sm:mx-auto mt-16 mb-14"
       >
         <div className="card card-compact w-96 bg-indigo-100 shadow-xl transition duration-150 ease-out hover:ease-in">
           <figure>
