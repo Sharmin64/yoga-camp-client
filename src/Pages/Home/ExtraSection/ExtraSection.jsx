@@ -3,13 +3,15 @@ import offerImg from "../../../assets/images/offerA.jpeg";
 import offerB from "../../../assets/images/offerD.png";
 import offerC from "../../../assets/images/offerE.png";
 import {motion} from "framer-motion";
+import SectionTitle from "../../../components/SectionTitle";
 const ExtraSection = () => {
   return (
     <>
       <div className="divider my-10">
-        <h3 className="text-3xl font-mono font-semibold text-indigo-600 text-center mb-3">
-          |What We Offer|
-        </h3>
+        <SectionTitle
+          heading={"Best Offer"}
+          subHeading={"here are our"}
+        ></SectionTitle>
       </div>
       <motion.div
         drag

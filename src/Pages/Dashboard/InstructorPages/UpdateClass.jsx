@@ -9,6 +9,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAllClasses from "../../../hooks/useAllClasses";
 import {Helmet} from "react-helmet-async";
 import axios from "axios";
+import SectionTitle from "../../../components/SectionTitle";
 
 const UpdateClass = () => {
   const paramsId = useParams();
@@ -61,7 +62,10 @@ const UpdateClass = () => {
       <Helmet>
         <title>Core Power| Dashboard-Update Class</title>
       </Helmet>
-
+      <SectionTitle
+        subHeading={"Only Instructor can"}
+        heading={"Update Now"}
+      ></SectionTitle>
       <div className="lg:mx-14">
         <form className="w-full space-y-7 mt-16" onSubmit={handleUpdate}>
           {/* Name and email */}

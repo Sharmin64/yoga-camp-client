@@ -7,6 +7,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAllClasses from "../../../hooks/useAllClasses";
 import axios from "axios";
 import {Helmet} from "react-helmet-async";
+import SectionTitle from "../../../components/SectionTitle";
 
 const AddClass = () => {
   const {user} = useAuth();
@@ -53,7 +54,7 @@ const AddClass = () => {
       <Helmet>
         <title>Core Power | Dashboard-Add Class</title>
       </Helmet>
-      {/*<SectionTitle subHeading="Wanna add a class?" heading="Add Now" />*/}
+      <SectionTitle subHeading="Wanna add a class?" heading="Add Now" />
       <div className="lg:mx-14">
         <form className="w-full space-y-7 mt-16" onSubmit={handleAdd}>
           {/* Name and email */}

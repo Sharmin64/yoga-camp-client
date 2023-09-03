@@ -13,6 +13,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 import axios from "axios";
 import {Helmet} from "react-helmet-async";
+import SectionTitle from "../../../components/SectionTitle";
 
 const MyClasses = () => {
   const navigation = useNavigation();
@@ -39,7 +40,10 @@ const MyClasses = () => {
       <Helmet>
         <title>Core Power | Dashboard-My Classes</title>
       </Helmet>
-      {/*<SectionTitle heading="See all your classes" />*/}
+      <SectionTitle
+        heading="My Classes"
+        subHeading={"the classes under a teacher"}
+      />
       <div className="lg:mx-12">
         <div className="overflow-x-auto">
           <table className="table">

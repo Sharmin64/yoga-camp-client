@@ -9,6 +9,7 @@ import {toast} from "react-hot-toast";
 import {GrUserAdmin} from "react-icons/gr";
 import axios from "axios";
 import {Helmet} from "react-helmet-async";
+import SectionTitle from "../../../components/SectionTitle";
 
 const ManageUsers = () => {
   const navigation = useNavigation();
@@ -49,6 +50,10 @@ const ManageUsers = () => {
       <Helmet>
         <title>Core Power | Dashboard Manage Classes</title>
       </Helmet>
+      <SectionTitle
+        heading={"Manage Classes"}
+        subHeading={"Only Admin Can See"}
+      ></SectionTitle>
 
       <div className="lg:mx-10">
         <div className="overflow-x-auto">

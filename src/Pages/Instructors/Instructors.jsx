@@ -6,6 +6,7 @@ import {Helmet} from "react-helmet-async";
 import {Fade} from "react-awesome-reveal";
 import Loader from "../Shared/Loader";
 import {useNavigation} from "react-router-dom";
+import SectionTitle from "../../components/SectionTitle";
 
 const Instructors = () => {
   const navigation = useNavigation();
@@ -48,7 +49,7 @@ const Instructors = () => {
         <Helmet>
           <title>Core Power | All Instructors</title>
         </Helmet>
-        {/*<SectionTitle subHeading="We Provide" heading="The Best Teacher" />*/}
+        <SectionTitle subHeading="We Provide" heading="The Best Teacher" />
         <Fade cascade damping={0.1}>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {instructors.map((teacher) => (

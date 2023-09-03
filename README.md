@@ -14,9 +14,9 @@
 
 ## client live link: https://assignment-12-summer-camp.web.app
 
-## client side code link: https://github.com/programming-hero-web-course1/b712-summer-camp-client-side-Sharmin64
+## client side code link: https://github.com/Sharmin64/yoga-camp-client
 
-## server side code link: https://github.com/programming-hero-web-course1/b7a12-summer-camp-server_side-Sharmin64
+## server side code link: https://github.com/Sharmin64/yoga-camp-server
 
 ## Admin Id and Password: pata@gmail.com/ pass: erT56Yui%$
 

@@ -7,7 +7,7 @@ import {AuthContext} from "../../../Providers/AuthProvider.jsx";
 
 const Navbar = () => {
   const {user, logOut} = useContext(AuthContext);
-  
+
   const handleLogOut = () => {
     logOut()
       .then(() => {
@@ -18,10 +18,10 @@ const Navbar = () => {
       });
   };
 
-
   return (
-    <div className="px-4 py-16 mx-auto sm: max-w-xl md:max-w-full lg:max-w-screen-2xl md:px-20 lg:px-8 lg:py-10">
-      <div className="navbar bg-base-100">
+    //<div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen md:px-20 lg:px-8 lg:py-10 ">
+    <div className="mx-auto ">
+      <div className="navbar bg-zinc-100">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">

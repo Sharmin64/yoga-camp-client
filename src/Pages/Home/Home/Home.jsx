@@ -9,6 +9,8 @@ import Loader from "../../Shared/Loader";
 import PopularClass from "../PopularClasses/PopularClass";
 
 import Banner from "../../../components/Banner/Banner";
+import AboutSection from "../AboutSection/AboutSection";
+import Testimonial from "../Testimonial/Testimonial";
 
 const Home = () => {
   const navigation = useNavigation();
@@ -26,6 +28,8 @@ const Home = () => {
       <div className=" w-full ms-4">
         <ExtraSection />
       </div>
+      <AboutSection />
+      <Testimonial />
     </div>
   );
 };
