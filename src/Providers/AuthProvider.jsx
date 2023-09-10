@@ -13,6 +13,7 @@ import {
 import {app} from "../firebase/firebase.config";
 import {useState} from "react";
 import {useEffect} from "react";
+import axios from "axios";
 //import axios from "axios";
 
 export const AuthContext = createContext(null);
@@ -64,8 +65,7 @@ const AuthProvider = ({children}) => {
   //          localStorage.setItem("access-token", data.data.token);
   //          setLoading(false);
   //        });
-  //    }
-  //    else {
+  //    } else {
   //      localStorage.removeItem("access-token");
   //    }
   //  });
@@ -85,7 +85,7 @@ const AuthProvider = ({children}) => {
       return unsubscribe();
     };
   }, []);
-  //console.log(user);
+  console.log(user);
 
   const authInfo = {
     user,

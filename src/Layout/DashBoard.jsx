@@ -76,7 +76,7 @@ const DashBoard = () => {
           {role === "instructor" && (
             <li>
               <NavLink
-                to="/dashboard/updateClasses"
+                to="/dashboard/updateClass"
                 className={({isActive}) =>
                   isActive
                     ? "flex items-center p-2 text-zinc-400 rounded-lg dark:text-gray-50 hover:bg-blue-400 dark:hover:bg-blue-600"

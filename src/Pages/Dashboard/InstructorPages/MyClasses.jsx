@@ -96,7 +96,7 @@ const MyClasses = () => {
                       See
                     </label>
                   </td>
-                  <Link to="/dashboard/updateClass">
+                  <Link to="/dashboard/updateClasses">
                     <td>
                       <button className="btn">
                         <FaEdit className="h-5 w-5" />

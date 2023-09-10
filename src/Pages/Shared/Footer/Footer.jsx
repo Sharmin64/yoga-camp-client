@@ -37,7 +37,7 @@ const Footer = () => {
                 placeholder="username@site.com"
                 className="input input-bordered w-full pr-16"
               />
-              <button className="btn btn-primary absolute top-0 right-0 rounded-l-none">
+              <button className="btn btn-primary absolute top-2.5 right-0 bottom-0 rounded-l-none">
                 Join Us
               </button>
             </div>
@@ -46,7 +46,7 @@ const Footer = () => {
       </footer>
       <hr />
       <footer
-        className="footer items-center mb-16 relative bg-indigo-800 text-white py-4 wavy-border rounded-b-[160px]"
+        className="footer items-center mb-6 relative bg-indigo-800 text-white py-4 wavy-border rounded-b-[160px]"
         //style={{borderTop: "150px"}}
       >
         <div

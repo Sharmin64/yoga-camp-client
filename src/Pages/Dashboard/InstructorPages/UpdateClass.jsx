@@ -15,7 +15,7 @@ const UpdateClass = () => {
   const paramsId = useParams();
   const id = paramsId.id;
   const {user} = useAuth();
-  const [axiosSecure] = useAxiosSecure();
+  //const [axiosSecure] = useAxiosSecure();
   const [classes, , refetch] = useAllClasses();
   const data = classes.find((item) => item._id === id);
 
