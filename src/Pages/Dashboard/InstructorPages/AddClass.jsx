@@ -56,9 +56,9 @@ const AddClass = () => {
       </Helmet>
       <SectionTitle subHeading="Wanna add a class?" heading="Add Now" />
       <div className="lg:mx-14">
-        <form className="w-full space-y-7 mt-16" onSubmit={handleAdd}>
+        <form className="w-full  mt-16 space-y-7" onSubmit={handleAdd}>
           {/* Name and email */}
-          <div className="md:flex gap-4 space-y-3">
+          <div className="md:flex gap-4">
             <div className="md:w-1/2">
               <input
                 type="text"
@@ -79,7 +79,7 @@ const AddClass = () => {
             </div>
           </div>
           {/* name and photo */}
-          <div className="md:flex gap-4 mt-2 space-y-3">
+          <div className="md:flex gap-4 mt-2">
             <div className="md:w-1/2">
               <input
                 type="text"
@@ -99,7 +99,7 @@ const AddClass = () => {
           </div>
 
           {/* sit and  price*/}
-          <div className="md:flex gap-4 mt-2 space-y-3">
+          <div className="md:flex gap-4 mt-2">
             <div className="md:w-1/2">
               <input
                 type="text"

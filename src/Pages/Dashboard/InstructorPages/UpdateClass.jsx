@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import {useNavigation, useParams} from "react-router-dom";
 
 import useAuth from "../../../hooks/useAuth";
-import useAxiosSecure from "../../../hooks/useAxiosSecure";
+//import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAllClasses from "../../../hooks/useAllClasses";
 import {Helmet} from "react-helmet-async";
 import axios from "axios";
@@ -17,7 +17,7 @@ const UpdateClass = () => {
   const {user} = useAuth();
   //const [axiosSecure] = useAxiosSecure();
   const [classes, , refetch] = useAllClasses();
-  const data = classes.find((item) => item._id === id);
+  const data = classes.find((item) => item.id === id);
 
   const handleUpdate = async (e) => {
     e.preventDefault();
@@ -41,7 +41,7 @@ const UpdateClass = () => {
       price,
       status,
     };
-
+    console.log(updateClass);
     const res = await axios.put(
       `${import.meta.env.VITE_API_URL}/popular-classes/${id}`,
       updateClass

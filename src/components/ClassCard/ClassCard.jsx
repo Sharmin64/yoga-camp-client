@@ -67,7 +67,7 @@ const ClassCard = ({singleClass}) => {
   return (
     <div
       className={`card items-center w-96 ${
-        availableSeats <= 0 ? "bg-red-900" : "bg-indigo-100"
+        availableSeats <= 0 ? "bg-indigo-200" : "bg-indigo-100"
       } shadow-xl mb-6`}
     >
       <figure className="px-10 pt-10">
