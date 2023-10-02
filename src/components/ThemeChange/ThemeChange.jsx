@@ -22,7 +22,7 @@ const ThemeChange = () => {
       <label className="swap swap-rotate">
         {/* <!-- this hidden checkbox controls the state */}
         <input
-          className="w-0"
+          className="w-0 bg-[#d3e1e3]"
           type="checkbox"
           onChange={handleToggle}
           checked={theme === "light" ? false : true}

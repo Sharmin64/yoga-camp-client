@@ -22,7 +22,7 @@ const Navbar = () => {
   return (
     //<div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen md:px-20 lg:px-8 lg:py-10 ">
     <div className="mx-auto ">
-      <div className="navbar bg-zinc-100 fixed z-10 top-0">
+      <div className="navbar bg-[#eff1f1] fixed z-10 top-0">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -43,14 +43,14 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-[#d3e1e3] rounded-box w-52"
             >
               <li>
                 <NavLink
                   to="/"
                   className={({isActive}) =>
                     isActive
-                      ? "font-medium tracking-wide text-indigo-500 transition-colors duration-200 bg-transparent rounded-full"
+                      ? "font-medium tracking-wide text-[#226872] transition-colors duration-200 bg-transparent rounded-full"
                       : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-teal-5"
                   }
                 >
@@ -62,7 +62,7 @@ const Navbar = () => {
                   to="/instructors"
                   className={({isActive}) =>
                     isActive
-                      ? "activfont-medium tracking-wide text-indigo-500 transition-colors duration-200 bg-transparent rounded-fulle"
+                      ? "activfont-medium tracking-wide text-[#226872] transition-colors duration-200 bg-transparent rounded-fulle"
                       : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-teal-5"
                   }
                 >
@@ -74,7 +74,7 @@ const Navbar = () => {
                   to="/classes"
                   className={({isActive}) =>
                     isActive
-                      ? "font-medium tracking-wide text-indigo-500 transition-colors duration-200 bg-transparent rounded-full"
+                      ? "font-medium tracking-wide text-[#226872] transition-colors duration-200 bg-transparent rounded-full"
                       : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-teal-5"
                   }
                 >
@@ -87,7 +87,7 @@ const Navbar = () => {
                     to="/dashboard"
                     className={({isActive}) =>
                       isActive
-                        ? "font-medium tracking-wide text-indigo-500 transition-colors duration-200 bg-transparent rounded-full"
+                        ? "font-medium tracking-wide text-[#226872] transition-colors duration-200 bg-transparent rounded-full"
                         : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-teal-5"
                     }
                   >
@@ -113,7 +113,7 @@ const Navbar = () => {
                 to="/"
                 className={({isActive}) =>
                   isActive
-                    ? "font-medium tracking-wide text-indigo-500 transition-colors duration-200 bg-transparent rounded-full"
+                    ? "font-medium tracking-wide text-[#226872] transition-colors duration-200 bg-transparent rounded-full"
                     : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-teal-5"
                 }
               >
@@ -125,7 +125,7 @@ const Navbar = () => {
                 to="/instructors"
                 className={({isActive}) =>
                   isActive
-                    ? "font-medium tracking-wide text-indigo-500 transition-colors duration-200 bg-transparent rounded-full"
+                    ? "font-medium tracking-wide text-[#226872] transition-colors duration-200 bg-transparent rounded-full"
                     : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-teal-5"
                 }
               >
@@ -137,7 +137,7 @@ const Navbar = () => {
                 to="/classes"
                 className={({isActive}) =>
                   isActive
-                    ? "font-medium tracking-wide text-indigo-500 transition-colors duration-200 bg-transparent rounded-full"
+                    ? "font-medium tracking-wide text-[#226872] transition-colors duration-200 bg-transparent rounded-full"
                     : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-teal-5"
                 }
               >
@@ -150,7 +150,7 @@ const Navbar = () => {
                   to="/dashboard"
                   className={({isActive}) =>
                     isActive
-                      ? "font-medium tracking-wide text-indigo-500 transition-colors duration-200 bg-transparent rounded-full"
+                      ? "font-medium tracking-wide text-[#226872] transition-colors duration-200 bg-transparent rounded-full"
                       : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-teal-5"
                   }
                 >
@@ -166,7 +166,7 @@ const Navbar = () => {
               <div>
                 <button
                   onClick={handleLogOut}
-                  className="font-medium transition duration-200 shadow-md md:mb-0 px-4 py-2 md:px-8 md:py-3 m-2 text-sm rounded-xl text-white bg-indigo-500 hover:bg-transparent hover:text-indigo-400 border-0 border-b-4 border-indigo-800 cursor-pointer"
+                  className="font-medium transition duration-200 shadow-md md:mb-0 px-4 py-2 md:px-8 md:py-3 m-2 text-sm rounded-xl text-white bg-[#4e868e] hover:bg-transparent hover:text-[#7aa4aa] border-0 border-b-4 border-[#a7c3c7]  cursor-pointer"
                 >
                   Sign Out
                 </button>
@@ -181,7 +181,7 @@ const Navbar = () => {
           ) : (
             <>
               <NavLink to="/login">
-                <button className="font-medium transition duration-200 shadow-md md:mb-0 px-4 py-2 md:px-8 md:py-3 m-2 text-sm rounded-xl text-white bg-indigo-500 hover:bg-transparent hover:text-indigo-400 border-0 border-b-4 border-indigo-800 cursor-pointer">
+                <button className="font-medium transition duration-200 shadow-md md:mb-0 px-4 py-2 md:px-8 md:py-3 m-2 text-sm rounded-xl text-white bg-[#4e868e] hover:bg-white hover:text-[#226872] border-0 border-b-4 border-[#a7c3c7] cursor-pointer">
                   Log In
                 </button>
               </NavLink>
