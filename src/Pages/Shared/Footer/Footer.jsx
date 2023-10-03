@@ -1,12 +1,16 @@
 import React from "react";
-//import "./Footer.css";
+import "./Footer.css";
+import logo from "../../../assets/logo/yogaLogo.png";
 
 const Footer = () => {
   return (
     <div>
-      <footer className="footer p-10 bg-base-200 text-base-content">
+      <footer className="footer p-10 bg-[#62686ed8] text-white">
         <div>
-          <strong className="footer-title">CorePower Yoga </strong>
+          <strong className="footer-title">
+            <img className="w-12 h-12 rounded-full" src={logo} alt="" />
+            CorePower
+          </strong>
           <a className="link link-hover">Classes</a>
           <a className="link link-hover">Instructors</a>
           <a className="link link-hover">Contact Us</a>
@@ -29,7 +33,9 @@ const Footer = () => {
           <span className="footer-title">Yoga Camp</span>
           <div className="form-control w-80">
             <label className="label">
-              <span className="label-text">Enter your email address</span>
+              <span className="label-text text-white">
+                Enter your email address
+              </span>
             </label>
             <div className="relative">
               <input
@@ -37,7 +43,7 @@ const Footer = () => {
                 placeholder="username@site.com"
                 className="input input-bordered w-full pr-16"
               />
-              <button className="btn btn-primary absolute top-2.5 right-0 bottom-0 rounded-l-none">
+              <button className="btn bg-[#343d46] text-white absolute top-2.5 right-0 bottom-0 rounded-l-none hover:text-black">
                 Join Us
               </button>
             </div>
@@ -46,16 +52,14 @@ const Footer = () => {
       </footer>
       <hr />
       <footer
-        className="footer items-center mb-6 relative bg-indigo-800 text-white py-4 wavy-border rounded-b-[160px]"
+        className="footer items-center mb-6 relative bg-[#343d46] text-white py-4 wavy-border rounded-b-[160px]"
         //style={{borderTop: "150px"}}
       >
         <div
-          className="items-center grid-flow-col w-full text-center"
+          className="items-center justify-center grid-flow-col w-full text-center"
           //style={{borderTop: "150px"}}
         >
-          <p className="text-center ml-60 pl-64">
-            Copyright © 2023 - All right reserved
-          </p>
+          <p className="text-center">Copyright © 2023 - All right reserved</p>
         </div>
       </footer>
     </div>
