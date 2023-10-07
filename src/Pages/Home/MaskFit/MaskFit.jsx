@@ -12,7 +12,7 @@ const MaskFit = () => {
         heading={"Famous Trainer"}
         subHeading={"who special in traning"}
       />
-      <div className="lg:flex flex-row sm:mx-auto sm:w-full sm:my-4 justify-around gap-4 items-center">
+      <div className="lg:flex flex-row sm:mx-auto sm:w-full sm:my-4 justify-around gap-4 items-center md:object-center">
         <img
           className="card rounded-full w-auto md:w-full  md:mx-auto box-border hover:scale-125 transition duration-500 cursor-pointer"
           src={maskA}
