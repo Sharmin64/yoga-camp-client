@@ -2,7 +2,7 @@ import React from "react";
 
 const SectionTitle = ({subHeading, heading}) => {
   return (
-    <div className="text-center md:w-4/12 mx-auto my-8">
+    <div className="text-center lg:w-6/12 sm:mx-auto my-8">
       <p className="text-violet-600 font-[curve] mb-2 text-2xl">
         ---{subHeading}---
       </p>

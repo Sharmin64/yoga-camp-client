@@ -10,16 +10,34 @@ const MaskFit = () => {
     <div>
       <SectionTitle
         heading={"Famous Trainer"}
-        subHeading={"what special in website"}
+        subHeading={"who special in traning"}
       />
-      <div className="lg:flex flex-row sm:mx-auto sm:w-fit sm:my-4 justify-around items-center">
-        <img className="mask mask-heart w-52" src={maskA} />
-        <img className="mask mask-hexagon w-52" src={maskB} />
-        <img className="mask mask-heart w-52" src={maskC} />
-        <img className="mask mask-hexagon w-52" src={maskD} />
+      <div className="lg:flex flex-row sm:mx-auto sm:w-full sm:my-4 justify-around gap-4 items-center">
+        <img
+          className="card rounded-full w-auto md:w-full  md:mx-auto box-border hover:scale-125 transition duration-500 cursor-pointer"
+          src={maskA}
+          alt=""
+        />
+        <img
+          className="card rounded-full w-auto box-border hover:scale-125 transition duration-500 cursor-pointer"
+          src={maskB}
+          alt=""
+        />
+        <img
+          className="card rounded-full w-auto box-border hover:scale-125 transition duration-500 cursor-pointer"
+          src={maskC}
+          alt=""
+        />
+        <img
+          className="card rounded-full w-auto box-border hover:scale-125 transition duration-500 cursor-pointer"
+          src={maskD}
+          alt=""
+        />
       </div>
     </div>
   );
 };
 
 export default MaskFit;
+//className="card rounded-full w-72 hover:scale-125 transition duration-500 cursor-pointer"
+//lg:flex flex-row sm:mx-auto sm:w-full sm:my-4 justify-around gap-4 items-center
