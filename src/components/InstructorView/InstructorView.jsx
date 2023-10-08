@@ -4,7 +4,7 @@ import React from "react";
 const InstructorView = ({teacher}) => {
   return (
     <div className="avatar flex flex-col text-center justify-center items-center shadow-md bg-indigo-100 rounded-2xl">
-      <div className="w-48 mask mask-squircle relative hover:scale-110 transition-all">
+      <div className="w-full max-w-sm rounded-2xl relative hover:scale-110 transition-all">
         <img src={teacher?.image} />
       </div>
       <>

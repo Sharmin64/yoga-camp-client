@@ -74,7 +74,7 @@ const ClassCard = ({singleClass}) => {
         <img
           src={classImage}
           alt="Shoes"
-          className="rounded-xl w-72 h-48 relative hover:scale-110 transition-all"
+          className="rounded-xl w-full relative hover:scale-110 transition-all"
         />
       </figure>
       <div className="card-body items-center text-center">
