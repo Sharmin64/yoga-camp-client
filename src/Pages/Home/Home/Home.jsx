@@ -14,6 +14,7 @@ import Testimonial from "../Testimonial/Testimonial";
 import Founder from "../Founder/Founder";
 import StaticSite from "../StaticSite/StaticSite";
 import MaskFit from "../MaskFit/MaskFit";
+import FounderAlt from "../FounderAlt/FounderAlt";
 
 const Home = () => {
   const navigation = useNavigation();
@@ -33,6 +34,7 @@ const Home = () => {
       </div>
       <AboutSection />
       <Founder />
+      <FounderAlt />
       <StaticSite />
       <MaskFit />
       <Testimonial />

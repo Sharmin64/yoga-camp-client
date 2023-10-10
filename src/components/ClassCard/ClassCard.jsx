@@ -67,7 +67,7 @@ const ClassCard = ({singleClass}) => {
   return (
     <div
       className={`card items-center w-96 ${
-        availableSeats <= 0 ? "bg-indigo-200" : "bg-indigo-100"
+        availableSeats <= 0 ? "bg-[#c0c5ce]" : "bg-[#c0c5ce]"
       } shadow-xl mb-6`}
     >
       <figure className="px-10 pt-10">
@@ -80,7 +80,7 @@ const ClassCard = ({singleClass}) => {
       <div className="card-body items-center text-center">
         <h2 className="card-title text-3xl font-bold">{className}</h2>
         <p className="text-md font-semibold">Instructor: {instructorName}</p>
-        <p className="absolute top-10 right-6 bg-indigo-200 font-semibold rounded-xl p-1 text-black text-sm">
+        <p className="absolute top-10 right-6 bg-[#c0c5ce] font-semibold rounded-xl p-1 text-black text-sm">
           Students: {enrolled}
         </p>
         <p className="font-semibold">Available Seats: {availableSeats}</p>
@@ -94,7 +94,7 @@ const ClassCard = ({singleClass}) => {
             className={
               isAdmin || isInstructor
                 ? "btn"
-                : "font-medium transition duration-200 shadow-md md:mb-0 px-4 py-2 md:px-8 md:py-3 m-2 text-sm rounded-xl text-white bg-indigo-500 hover:bg-transparent hover:text-indigo-400 border-0 border-b-4 border-indigo-800 cursor-pointer"
+                : "font-medium transition duration-200 shadow-md md:mb-0 px-4 py-2 md:px-8 md:py-3 m-2 text-sm rounded-xl text-white bg-[#343d46] hover:bg-transparent hover:text-[#343d46] border-0 border-b-4 border-[#65737e] cursor-pointer"
             }
           >
             Select Class
