@@ -14,7 +14,7 @@ const AboutSection = () => {
           backgroundImage: "url(https://i.ibb.co/mvb8wcX/yoga.jpg)",
         }}
       >
-        <div className="hero-overlay bg-opacity-60 absolute"></div>
+        <div className="hero-overlay bg-opacity-60 min-h-screen absolute"></div>
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md">
             <h1 className="mb-5 text-5xl font-bold">About Us</h1>
