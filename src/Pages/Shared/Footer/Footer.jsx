@@ -1,6 +1,7 @@
 import React from "react";
 import "./Footer.css";
 import logo from "../../../assets/logo/yogaLogo.png";
+import {Link} from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -11,8 +12,12 @@ const Footer = () => {
             <img className="w-12 h-12 rounded-full" src={logo} alt="" />
             CorePower
           </strong>
-          <a className="link link-hover">Classes</a>
-          <a className="link link-hover">Instructors</a>
+          <Link to="/classes" className="link link-hover">
+            Classes
+          </Link>
+          <Link to="/instructors" className="link link-hover">
+            Instructors
+          </Link>
           <a className="link link-hover">Contact Us</a>
           <a className="link link-hover">Advertisement</a>
         </div>

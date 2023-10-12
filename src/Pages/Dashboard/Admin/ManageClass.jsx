@@ -16,7 +16,7 @@ const ManageClass = () => {
   if (navigation.state === "loading") {
     return <Loader />;
   }
-  const [classes, refetch] = useAllClasses();
+  const [classes, , refetch] = useAllClasses();
   const [axiosSecure] = useAxiosSecure();
   const [message, setMessage] = useState("");
 

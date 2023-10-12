@@ -3,7 +3,7 @@
 import {toast} from "react-hot-toast";
 import {useState} from "react";
 import useAuth from "../../hooks/useAuth";
-import {Navigate, useNavigation} from "react-router-dom";
+import {Navigate, useActionData, useNavigation} from "react-router-dom";
 import Loader from "../../Pages/Shared/Loader";
 import useInstructor from "../../hooks/useInstructor";
 import useAdmin from "../../hooks/useAdmin";
@@ -11,6 +11,7 @@ import useClass from "../../hooks/useClass";
 import useEnroll from "../../hooks/useEnroll";
 
 const ClassCard = ({singleClass}) => {
+  const theme = useActionData();
   const navigation = useNavigation();
   if (navigation.state === "loading") {
     return <Loader />;
@@ -78,7 +79,13 @@ const ClassCard = ({singleClass}) => {
         />
       </figure>
       <div className="card-body items-center text-center">
-        <h2 className="card-title text-3xl font-bold">{className}</h2>
+        <h2
+          className={`card-title text-3xl font-bold ${
+            theme === "dark" ? "text-black" : "text-white"
+          }`}
+        >
+          {className}
+        </h2>
         <p className="text-md font-semibold">Instructor: {instructorName}</p>
         <p className="absolute top-10 right-6 bg-[#c0c5ce] font-semibold rounded-xl p-1 text-black text-sm">
           Students: {enrolled}
@@ -106,3 +113,4 @@ const ClassCard = ({singleClass}) => {
 };
 
 export default ClassCard;
+//""
